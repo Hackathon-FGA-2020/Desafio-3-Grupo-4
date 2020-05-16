@@ -3,31 +3,27 @@ import { Text, View } from 'react-native';
 
 import { styles } from './styles';
 
-const categorias = [
+const produtos = [
   {
     id: '0',
     nome: 'cenoura',
   },
   {
     id: '1',
-    nome: 'banana',
+    nome: 'cenoura roxa',
   },
+  {
+    id: 2,
+    nome: 'cenoura verde',
+  }
 ];
 
-export default class Categorias extends Component {
-
-  renderItem = ({item}) => (
-
-    <View style={styles.item}>
-      <Text>{item.nome}</Text>
-    </View>
-
-  );
+export default class Categoria extends Component {
 
   render () {
     return (
       <View style={styles.container}>
-        <Text> Tela das Categorias</Text>
+        <Text> Tela da Categoria Específica</Text>
       </View>
     );
   }
