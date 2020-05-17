@@ -1,16 +1,167 @@
-import React, { Component } from 'react';
-import { Text, View, Button} from 'react-native';
-import { styles } from './styles';
+import React, { Component } from "react";
+import {
+  Text,
+  View,
+  SafeAreaView,
+  Image,
+  TouchableOpacity,
+  onPress,
+  StatusBar,
+  Button,
+} from "react-native";
+import { styles } from "./styles";
+import { FlatList } from "react-native-gesture-handler";
 
 export default class Inicial extends Component {
+  state = {
+    DATAcategorias: [
+      {
+        id: "0",
+        nome: "Alface",
+      },
+      {
+        id: "1",
+        nome: "Tomate",
+      },
+      {
+        id: "2",
+        nome: "Laranja",
+      },
+      {
+        id: "3",
+        nome: "Graviola",
+      },
+      {
+        id: "4",
+        nome: "Jabuticaba",
+      },
+      {
+        id: "5",
+        nome: "Pepino",
+      },
+      {
+        id: "6",
+        nome: "Cebola",
+      },
+    ],
+    DATAvendedores: [
+      {
+        id: "0",
+        nome: "Nivaldo",
+        foto: "./img/vendedor/perfil.png",
+      },
+      {
+        id: "1",
+        nome: "Maria",
+        foto: "./img/vendedor/perfil.png",
+      },
+      {
+        id: "2",
+        nome: "Pedro",
+        foto: "./img/vendedor/perfil.png",
+      },
+      {
+        id: "3",
+        nome: "Jorje",
+        foto: "./img/vendedor/perfil.png",
+      },
+      {
+        id: "4",
+        nome: "Ana",
+        foto: "./img/vendedor/perfil.png",
+      },
+      {
+        id: "5",
+        nome: "Glória",
+        foto: "./img/vendedor/perfil.png",
+      },
+    ],
+  };
 
-  render () {
+  renderVendedor = ({ item }) => (
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.perfil}>
+        <Image
+          style={styles.fotoVendedor}
+          source={require("./img/vendedor/perfil.png")}
+        />
+        <Text style={styles.nome}>{item.nome}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  renderCategoria = ({ item }) => (
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.categoria}>
+        <Image
+          style={styles.fotoCategoria} //Mudar para foto da catetegoria
+          source={require("./img/vendedor/perfil.png")}
+        />
+        <Text style={styles.nomeCategoria}>{item.nome}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  render() {
     return (
       <View style={styles.container}>
-        <Text> Commit Inicial </Text>
-        <Button title="Categorias" onPress={() => this.props.navigation.navigate("Categorias")}></Button>
+        <StatusBar hidden />
+
+        <View style={styles.opcoes}>
+          <TouchableOpacity onPress={onPress}>
+            <Image
+              style={styles.botaoPerfil}
+              source={require("./img/vendedor/perfil.png")}
+            />
+          </TouchableOpacity>
+
+          <View style={styles.carrinhoBusca}>
+            <TouchableOpacity onPress={onPress}>
+              <Image
+                style={styles.botaoCarrinho}
+                source={require("./img/icones/cesta.png")}
+              />
+            </TouchableOpacity>
+{/*      */}<TouchableOpacity onPress={onPress}>
+              <Image
+                style={styles.botaoPesquisa}
+                source={require("./img/icones/lupa.png")}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.vendedores}>
+          <Text style={styles.titulo}> Vendedores </Text>
+
+          <View style={styles.listaVendedores}>
+            <FlatList
+              data={this.state.DATAvendedores}
+              keyExtractor={(item) => item.id}
+              renderItem={this.renderVendedor}
+              horizontal={true}
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        </View>
+
+        <View style={styles.categorias}>
+          <Text style={styles.titulo}>Produtos</Text>
+
+          <View style={styles.listaCategorias}>
+            <SafeAreaView>
+              <FlatList
+                columnWrapperStyle={styles.linhaDaColunadasCategorias}
+                data={this.state.DATAcategorias}
+                keyExtractor={(item) => item.id}
+                numColumns={2}
+                renderItem={this.renderCategoria}
+                showsVerticalScrollIndicator={false}
+              />
+            </SafeAreaView>
+          </View>
+        </View>
       </View>
     );
   }
-
 }
