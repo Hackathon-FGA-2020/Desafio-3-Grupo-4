@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8dd7cf",
+    backgroundColor: "#94d1cb",
   },
   topContainer: {
     marginTop: 10,
@@ -40,14 +40,14 @@ export const styles = StyleSheet.create({
     borderWidth: 3,
   },
   listContainer: {
-    padding: 25,
     paddingTop: 5,
     justifyContent: "center",
   },
   productContainer: {
-    elevation: 1,
+    elevation: 5,
     borderRadius: 10,
     flexDirection: "row",
+    marginHorizontal: 25,
     marginBottom: 10,
     backgroundColor: "#f2f2f2",
     borderWidth: 3,

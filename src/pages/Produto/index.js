@@ -7,7 +7,11 @@ export default class Produto extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text> Tela de produto </Text>
+        <View style={styles.topContainer}>
+          <View style={styles.categoryImage}>
+            <Text> Image </Text>
+          </View>
+        </View>
       </View>
     );
   }
