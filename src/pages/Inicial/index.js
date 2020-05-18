@@ -100,7 +100,12 @@ export default class Inicial extends Component {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => this.props.navigation.navigate("Busca")}
+              onPress={() =>
+                this.props.navigation.navigate("Busca", {
+                  DATAcategorias: this.state.DATAcategorias,
+                  DATAvendedores: this.state.DATAvendedores,
+                })
+              }
             >
               <Image
                 style={styles.botaoPesquisa}

@@ -14,70 +14,12 @@ import { RadioButton } from "react-native-paper";
 import { FlatList } from "react-native-gesture-handler";
 
 export default class Busca extends Component {
-
   state = {
-    DATAcategorias: [
-      {
-        id: "0",
-        nome: "Alface",
-      },
-      {
-        id: "1",
-        nome: "Tomate",
-      },
-      {
-        id: "2",
-        nome: "Laranja",
-      },
-      {
-        id: "3",
-        nome: "Graviola",
-      },
-      {
-        id: "4",
-        nome: "Jabuticaba",
-      },
-      {
-        id: "5",
-        nome: "Pepino",
-      },
-      {
-        id: "6",
-        nome: "Cebola",
-      },
-    ],
-    DATAvendedores: [
-      {
-        id: "0",
-        nome: "Nivaldo",
-        foto: "./img/vendedor/perfil.png",
-      },
-      {
-        id: "1",
-        nome: "Maria",
-        foto: "./img/vendedor/perfil.png",
-      },
-      {
-        id: "2",
-        nome: "Pedro",
-        foto: "./img/vendedor/perfil.png",
-      },
-      {
-        id: "3",
-        nome: "Jorje",
-        foto: "./img/vendedor/perfil.png",
-      },
-      {
-        id: "4",
-        nome: "Ana",
-        foto: "./img/vendedor/perfil.png",
-      },
-      {
-        id: "5",
-        nome: "Glória",
-        foto: "./img/vendedor/perfil.png",
-      },
-    ],
+    search: false,
+    value: null,
+    DATAcategorias: this.props.route.params.DATAcategorias,
+    DATAvendedores: this.props.route.params.DATAvendedores,
+    searchedDATA: false,
   };
 
   renderObjeto = ({ item }) => (
@@ -111,7 +53,19 @@ export default class Busca extends Component {
             placeholder="Pesquisar"
             underlineColorAndroid="white"
             value={this.state.text}
-            onChangeText={(text) => console.log(text)}
+            onChangeText={(text) => {
+              console.log(text);
+              if (text !== "") {
+                this.setState({
+                  search: true,
+                  searchedDATA: this.qualObjetoMarcado().filter((item) =>
+                    item.nome.toLowerCase().startsWith(text.toLowerCase())
+                  ),
+                });
+              } else {
+                this.setState({ search: false });
+              }
+            }}
             autoCorrect={false}
           />
         </View>
@@ -142,7 +96,11 @@ export default class Busca extends Component {
             <SafeAreaView>
               <FlatList
                 columnWrapperStyle={styles.linhaDaColunaDasCategorias}
-                data={this.qualObjetoMarcado()}
+                data={
+                  this.state.search === true
+                    ? this.state.searchedDATA
+                    : this.qualObjetoMarcado()
+                }
                 keyExtractor={(item) => item.id}
                 numColumns={2}
                 renderItem={this.renderObjeto}
