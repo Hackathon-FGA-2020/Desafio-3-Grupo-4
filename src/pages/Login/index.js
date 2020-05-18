@@ -13,13 +13,13 @@ export default class Login extends Component {
   //     conts { email, password } = this.state;
   // }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
 
-        
+
         <View style={styles.logo_image}>
-          <Image source={require('./images/logo_app.png')}
+          <Image source={require('../../../assets/images/Tela_login/logo_app.png')}
           />
         </View>
 
@@ -63,6 +63,6 @@ export default class Login extends Component {
       </View>
 
     );
-    
+
   }
 }
