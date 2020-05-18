@@ -42,6 +42,7 @@ export const styles = StyleSheet.create({
   listContainer: {
     paddingTop: 5,
     justifyContent: "center",
+    paddingBottom: 15,
   },
   productContainer: {
     elevation: 5,
