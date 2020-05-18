@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   onPress,
   StatusBar,
-  Button,
+  NavigationContainer,
 } from "react-native";
 import { styles } from "./styles";
 import { FlatList } from "react-native-gesture-handler";
+import { HitTestResultTypes } from "expo/build/AR";
 
 export default class Inicial extends Component {
   state = {
@@ -78,6 +79,73 @@ export default class Inicial extends Component {
     ],
   };
 
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar hidden />
+
+        <View style={styles.opcoes}>
+          <TouchableOpacity onPress={onPress}>
+            <Image
+              style={styles.botaoPerfil}
+              source={require("./img/vendedor/perfil.png")}
+            />
+          </TouchableOpacity>
+
+          <View style={styles.carrinhoBusca}>
+            <TouchableOpacity onPress={onPress}>
+              <Image
+                style={styles.botaoCarrinho}
+                source={require("./img/icones/cesta.png")}
+              />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate("Busca")}
+            >
+              <Image
+                style={styles.botaoPesquisa}
+                source={require("./img/icones/lupa.png")}
+              />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+        <View style={styles.vendedores}>
+          <Text style={styles.titulo}> Vendedores </Text>
+
+          <View style={styles.listaVendedores}>
+            <SafeAreaView>
+              <FlatList
+                data={this.state.DATAvendedores}
+                keyExtractor={(item) => item.id}
+                renderItem={this.renderVendedor}
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
+              />
+            </SafeAreaView>
+          </View>
+        </View>
+
+        <View style={styles.categorias}>
+          <Text style={styles.titulo}>Produtos</Text>
+
+          <View style={styles.listaCategorias}>
+            <SafeAreaView>
+              <FlatList
+                columnWrapperStyle={styles.linhaDaColunadasCategorias}
+                data={this.state.DATAcategorias}
+                keyExtractor={(item) => item.id}
+                numColumns={2}
+                renderItem={this.renderCategoria}
+                showsVerticalScrollIndicator={false}
+              />
+            </SafeAreaView>
+          </View>
+        </View>
+      </View>
+    );
+  }
+
   renderVendedor = ({ item }) => (
     <TouchableOpacity onPress={onPress}>
       <View style={styles.perfil}>
@@ -101,67 +169,4 @@ export default class Inicial extends Component {
       </View>
     </TouchableOpacity>
   );
-
-  render() {
-    return (
-      <View style={styles.container}>
-        <StatusBar hidden />
-
-        <View style={styles.opcoes}>
-          <TouchableOpacity onPress={onPress}>
-            <Image
-              style={styles.botaoPerfil}
-              source={require("./img/vendedor/perfil.png")}
-            />
-          </TouchableOpacity>
-
-          <View style={styles.carrinhoBusca}>
-            <TouchableOpacity onPress={onPress}>
-              <Image
-                style={styles.botaoCarrinho}
-                source={require("./img/icones/cesta.png")}
-              />
-            </TouchableOpacity>
-{/*      */}<TouchableOpacity onPress={onPress}>
-              <Image
-                style={styles.botaoPesquisa}
-                source={require("./img/icones/lupa.png")}
-              />
-            </TouchableOpacity>
-          </View>
-        </View>
-
-        <View style={styles.vendedores}>
-          <Text style={styles.titulo}> Vendedores </Text>
-
-          <View style={styles.listaVendedores}>
-            <FlatList
-              data={this.state.DATAvendedores}
-              keyExtractor={(item) => item.id}
-              renderItem={this.renderVendedor}
-              horizontal={true}
-              showsHorizontalScrollIndicator={false}
-            />
-          </View>
-        </View>
-
-        <View style={styles.categorias}>
-          <Text style={styles.titulo}>Produtos</Text>
-
-          <View style={styles.listaCategorias}>
-            <SafeAreaView>
-              <FlatList
-                columnWrapperStyle={styles.linhaDaColunadasCategorias}
-                data={this.state.DATAcategorias}
-                keyExtractor={(item) => item.id}
-                numColumns={2}
-                renderItem={this.renderCategoria}
-                showsVerticalScrollIndicator={false}
-              />
-            </SafeAreaView>
-          </View>
-        </View>
-      </View>
-    );
-  }
 }

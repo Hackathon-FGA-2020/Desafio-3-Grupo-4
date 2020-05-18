@@ -69,6 +69,8 @@ export const styles = StyleSheet.create({
     categoria: {
         height: 110,
         width: 110,
+        borderColor: "#71AFA7",
+        borderRadius: 20,
         alignItems: "center",
         marginBottom: 20,
         padding: 3,
