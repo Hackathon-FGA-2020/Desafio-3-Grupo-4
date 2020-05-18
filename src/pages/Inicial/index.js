@@ -78,6 +78,30 @@ export default class Inicial extends Component {
       },
     ],
   };
+  
+  renderVendedor = ({ item }) => (
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.perfil}>
+        <Image
+          style={styles.fotoVendedor}
+          source={require("./img/vendedor/perfil.png")}
+        />
+        <Text style={styles.nome}>{item.nome}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+
+  renderCategoria = ({ item }) => (
+    <TouchableOpacity onPress={onPress}>
+      <View style={styles.categoria}>
+        <Image
+          style={styles.fotoCategoria} //Mudar para foto da catetegoria
+          source={require("./img/vendedor/perfil.png")}
+        />
+        <Text style={styles.nomeCategoria}>{item.nome}</Text>
+      </View>
+    </TouchableOpacity>
+  );
 
   render() {
     return (
@@ -93,7 +117,13 @@ export default class Inicial extends Component {
           </TouchableOpacity>
 
           <View style={styles.carrinhoBusca}>
-            <TouchableOpacity onPress={onPress}>
+            <TouchableOpacity
+              onPress={() =>
+                this.props.navigation.navigate("Carrinho", {
+                  ProdutosCarrinho: this.state.ProdutosCarrinho,
+                })
+              }
+            >
               <Image
                 style={styles.botaoCarrinho}
                 source={require("./img/icones/cesta.png")}
@@ -151,27 +181,4 @@ export default class Inicial extends Component {
     );
   }
 
-  renderVendedor = ({ item }) => (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.perfil}>
-        <Image
-          style={styles.fotoVendedor}
-          source={require("./img/vendedor/perfil.png")}
-        />
-        <Text style={styles.nome}>{item.nome}</Text>
-      </View>
-    </TouchableOpacity>
-  );
-
-  renderCategoria = ({ item }) => (
-    <TouchableOpacity onPress={onPress}>
-      <View style={styles.categoria}>
-        <Image
-          style={styles.fotoCategoria} //Mudar para foto da catetegoria
-          source={require("./img/vendedor/perfil.png")}
-        />
-        <Text style={styles.nomeCategoria}>{item.nome}</Text>
-      </View>
-    </TouchableOpacity>
-  );
 }
