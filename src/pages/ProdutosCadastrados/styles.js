@@ -5,49 +5,57 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#8dd7cf',
-        alignItems:'center',
         justifyContent:'center',
     },
-    botao:{
-        width: 325,
-        height: 60,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        marginTop:'5%',
+    adicionarProduto: {
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center",
+        marginVertical: 20,
+        marginHorizontal: 20,
+        paddingHorizontal: 10,
+        backgroundColor: "white",
     },
-    fotoBotao:{
-        width:50,
-        height:50,
-        marginTop:'1.5%',
+    tituloBotao: {
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: 30,
     },
-    item:{
-        marginTop: '15%',
-        padding : 15,
-        backgroundColor: 'white',
-        width:325,
-        height:60,
-        alignItems:'flex-end'
+    textoBotao: {
+        fontSize: 25,
+        color: "#293845",
     },
-    textoBotao:{
-        fontSize:16,
-        fontWeight: 'bold',
-        textAlign:'center',
-        marginTop:'15%'
-    },
-    title:{
-        fontSize:20,
-        textAlign:'center',
-    },
-    botaoRemover:{
+    fotoBotao: {
         width: 35,
-        height:35,
-        borderRadius:100,
-        marginTop: '-9.25%',
-        alignItems:'flex-end',
-        marginHorizontal:'-2%'
+        height: 35,
     },
-    fotoBotaoRemover:{
-        width:35,
-        height:35,
-    }
+    lista: {
+        flex: 6,
+        marginHorizontal: 20,
+    },
+    item: {
+        flex: 1,
+        marginVertical: 10,
+        flexDirection: "row",
+        backgroundColor: "white",
+        paddingVertical: 20,
+    },
+    titulo: {
+        fontSize: 24,
+        color: "#293845",
+    },
+    nomeProduto: {
+        flex: 6,
+        paddingLeft: 20,
+        alignItems: "center", 
+    },
+    botaoRemover: {
+        flex:1,
+        alignItems: "center",  
+    },
+    fotoBotaoRemover: {
+        width: 30,
+        height: 30,
+    },
+
 });
