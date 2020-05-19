@@ -1,9 +1,13 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Button } from "react-native";
+import { Text, View, TouchableOpacity, Modal } from "react-native";
 
 import { styles } from "./styles";
 
 export default class Produto extends Component {
+  state = {
+    showPopUp: false,
+  };
+
   render() {
     const { product } = this.props.route.params;
     return (
@@ -40,10 +44,41 @@ export default class Produto extends Component {
         <TouchableOpacity
           style={styles.buttonBag}
           activeOpacity={0.6}
-          onPress={() => console.log("helo")}
+          onPress={() => this.setState({ showPopUp: true })}
         >
           <Text style={{ color: "white" }}>Adicionar à cesta</Text>
         </TouchableOpacity>
+        <Modal
+          visible={this.state.showPopUp}
+          transparent={true}
+          animationType="fade"
+        >
+          <View style={styles.modalContainer}>
+            <View style={styles.modalPopUpBox}>
+              <Text style={styles.modalPopUpText}>
+                Item adicionado ao carrinho...
+              </Text>
+              <View style={styles.modalButtonContainer}>
+                <TouchableOpacity
+                  activeOpacity={0.6}
+                  style={styles.modalButton}
+                  onPress={() => this.setState({ showPopUp: false })}
+                >
+                  <Text style={styles.modalButtonText}>
+                    Continuar comprando
+                  </Text>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  activeOpacity={0.6}
+                  style={styles.modalButton}
+                  onPress={() => this.setState({ showPopUp: false })}
+                >
+                  <Text style={styles.modalButtonText}>Ir para a cesta</Text>
+                </TouchableOpacity>
+              </View>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }

@@ -65,4 +65,35 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     padding: 15,
   },
+  modalContainer: {
+    flex: 1,
+    backgroundColor: "#00000070",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  modalPopUpBox: {
+    padding: 20,
+    backgroundColor: "white",
+    borderRadius: 10,
+  },
+  modalPopUpText: {
+    marginBottom: 10,
+    fontWeight: "bold",
+    textAlign: "center",
+  },
+  modalButtonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  modalButton: {
+    backgroundColor: "#836FFF",
+    padding: 8,
+    elevation: 5,
+    borderRadius: 5,
+    marginHorizontal: 5,
+  },
+  modalButtonText: {
+    textAlign: "center",
+    color: "white",
+  },
 });
