@@ -6,6 +6,8 @@ import Inicial from "./pages/Inicial";
 import Categoria from "./pages/Categoria";
 import Produto from "./pages/Produto";
 import Login from "./pages/Login";
+import Busca from "./pages/Busca";
+import Carrinho from "./pages/Carrinho";
 
 const Stack = createStackNavigator();
 
@@ -18,6 +20,8 @@ export default function Routes() {
         <Stack.Screen name="Categoria" component={Categoria} />
         <Stack.Screen name="Produto" component={Produto} />
         <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Busca" component={Busca} />
+        <Stack.Screen name="Carrinho" component={Carrinho} />
       </Stack.Navigator>
     </>
   );
