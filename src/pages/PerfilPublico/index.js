@@ -2,8 +2,7 @@ import React from "react";
 import { Text, View, Image, FlatList } from "react-native";
 import Rating from "./rating";
 import { styles } from "./styles";
-
-const dados = [];
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export default class PerfilPublico extends React.Component {
   state = {
@@ -48,19 +47,21 @@ export default class PerfilPublico extends React.Component {
   };
 
   renderDados=({ item }) => (
-    <View style={styles.produtos}>
-      <View style={styles.prodEsquerda}>
-        <Image
-          style={styles.imgProduto}
-          source={require("./icone.png")}
-        />
-      </View>
+    <View>
+      <TouchableOpacity style={styles.produtos}>
+        <View style={styles.prodEsquerda}>
+          <Image
+            style={styles.imgProduto}
+            source={require("./icone.png")}
+          />
+        </View>
 
-      <View style={styles.prodDireita}>
-        <Text>{item.nome}</Text>
-        <Text style={{ fontSize: 22 }}>{item.preco}</Text>
-        <Text>{item.local}</Text>
-      </View>
+        <View style={styles.prodDireita}>
+          <Text>{item.nome}</Text>
+          <Text style={{ fontSize: 22 }}>{item.preco}</Text>
+          <Text>{item.local}</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 
