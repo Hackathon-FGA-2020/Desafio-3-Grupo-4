@@ -6,7 +6,7 @@ import { styles } from './styles';
 export default class Inicial extends Component {
 
   state = {
-    DATA: [
+    data: [
       {id:'1', title: 'banana'},
       {id:'2', title: 'arroz'},
       {id:'3', title: 'abacaxi'},
@@ -22,13 +22,18 @@ export default class Inicial extends Component {
     Alert.alert("Tela cadastrar produtos","Tela cadastrar produtos");
   }
 
-  button() {
+  deleteItemById = (id) => {
+    const filteredData = this.state.data.filter(item => item.id !== id);
+    this.setState({ data: filteredData });
+  }
+
+  button(item) {
     Alert.alert(
       'AVISO',
       'Você realmente deseja remover este produto ?',
       [
         {text: 'Não'},
-        {text: 'Sim', onPress: () => this.removerProduto()},
+        {text: 'Sim', onPress: () => {this.removerProduto();this.deleteItemById(item.id)}},
       ]
     );
   }
@@ -41,10 +46,10 @@ export default class Inicial extends Component {
     return (
       <View style={styles.item}>
         <Text style={styles.title}>{item.title}</Text>
-        <TouchableOpacity onPress={() => this.button()}>
+        <TouchableOpacity onPress={() => this.button(item)}>
         <View style={styles.botaoRemover}>
           <Image style={styles.fotoBotaoRemover}
-          source={require('../ProdutosCadastrados/img/sinal-menos.png')}
+          source={require('./img/sinal-menos.png')}
           />
         </View>
         <Text></Text>
@@ -62,12 +67,12 @@ export default class Inicial extends Component {
         <TouchableOpacity onPress={() => {this.clicou() }}>
           <View style= {styles.botao}>
             <Image style = {styles.fotoBotao}
-            source={require('../ProdutosCadastrados/img/sinais.png')}
+            source={require('./img/sinais.png')}
             />
           </View>
         </TouchableOpacity>
         <FlatList
-          data={this.state.DATA}
+          data={this.state.data}
           keyExtractor={(item) => item.id}  
           renderItem={this.Item}
           showsVerticalScrollIndicator={false}

@@ -14,15 +14,8 @@ const categorias = [
   },
 ];
 
-export default class Categorias extends Component {
+export default class ProdutosCadastrados extends Component {
 
-  renderItem = ({item}) => (
-
-    <View style={styles.item}>
-      <Text>{item.nome}</Text>
-    </View>
-
-  );
 
   render () {
     return (

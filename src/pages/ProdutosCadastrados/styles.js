@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
     },
     title:{
         fontSize:20,
-        paddingRight: 115
+        textAlign:'center',
     },
     botaoRemover:{
         width: 35,
