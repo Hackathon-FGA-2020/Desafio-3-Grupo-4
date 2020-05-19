@@ -11,6 +11,7 @@ import {
 import { styles } from "./styles";
 import { FlatList } from "react-native-gesture-handler";
 
+
 export default class Inicial extends Component {
   state = {
     DATAcategorias: [
@@ -110,7 +111,7 @@ export default class Inicial extends Component {
 
         <View style={styles.opcoes}>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("Login")}
+            onPress={() => this.props.navigation.navigate("ProdutosCadastrados")}
           >
             <Image
               style={styles.botaoPerfil}
@@ -180,6 +181,7 @@ export default class Inicial extends Component {
           </View>
         </View>
       </View>
+      
     );
   }
 }
