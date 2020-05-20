@@ -6,6 +6,7 @@ import { ButtonGroup } from 'react-native-elements';
 import { RadioButton } from 'react-native-paper';
 
 
+
 const compras = [
     {produtos: 'Alface', precoTotal: 20.00 , comprador: 'Joel', dataDaCompra: '14/02/2020', id: '1',situacao: 'Pendente'},
     {produtos: 'Cenoura', precoTotal: 10.00 , comprador: 'Ana', dataDaCompra: '14/02/2020', id: '2', situacao: 'Pendente'},
@@ -14,6 +15,10 @@ const compras = [
     {produtos: 'Banana', precoTotal: 11.00 , comprador: 'Jose', dataDaCompra: '14/02/2020', id: '5',situacao: 'Pendente'},
     {produtos: 'Manga', precoTotal: 8.50 , comprador: 'Gabriela', dataDaCompra: '14/02/2020', id: '6',situacao: 'Pendente'},
     {produtos: 'Laranja', precoTotal: 20.00 , comprador: 'Joao', dataDaCompra: '14/02/2020', id: '7',situacao: 'Pendente'}
+];
+const pedidoFeito = [
+  { produtos: 'Alface', precoTotal: 20.00, vendedor: 'Joel', dataDaCompra: '14/02/2020', id: '1', situacao: 'Pendente' },
+  { produtos: 'Cenoura', precoTotal: 10.00, vendedor: 'Ana', dataDaCompra: '14/02/2020', id: '2', situacao: 'Pendente' }
 ];
 export default class comprasEfetuadasIndex extends React.Component {
   state = {
@@ -39,22 +44,23 @@ export default class comprasEfetuadasIndex extends React.Component {
               <Text style = {{fontWeight: 'bold'}}>Pedidos {"\n"}feitos</Text>
               <RadioButton value="second"  color = 'black'/>
             </View>
-            <View>
-              <Text style = {{fontWeight: 'bold'}}>{"\n"}Todos</Text>
-              <RadioButton value="third"  color = 'black'/>
-            </View>
           </RadioButton.Group>
         </View>
         <View style={styles.containerLista}>
           <FlatList
-            data = {compras}
+            data = {this.state.value === 'first'
+              ? compras
+              : pedidoFeito}
             renderItem = {({ item }) => (
-              <TouchableOpacity onPress = {() => this.props.navigation.navigate("detalhesCompra", {compra : item})}>
-                <Text style = {styles.info}> 
-                  Produto(s): {item.produtos}             Preço: R$ {item.precoTotal}{"\n"}{"\n"} 
-                  Comprador(a): {item.comprador}{"\n"}{"\n"}                              {item.dataDaCompra}
-                  <Text style = {{color: 'red'}}>{"\t"}{"\t"}{"\t"}{"\t"}{item.situacao}</Text>                           
-                </Text>
+              <TouchableOpacity 
+                onPress = {this.state.value === 'first' ?
+                  () => this.props.navigation.navigate("detalhesCompra", {compra : item}) : 
+                  () => this.props.navigation.navigate("detalhesPedidoFeito", {compra : item})}>
+                  <Text style = {this.state.value === 'first' ? styles.infoPedidoRecebido : styles.infoPedidoFeito}> 
+                    Produto(s): {item.produtos}             Preço: R$ {item.precoTotal}{"\n"}{"\n"} 
+                    {this.state.value === 'first' ? 'Comprador(a):' : 'Vendedor(a):'} {this.state.value === 'first' ? item.comprador : item.vendedor}{"\n"}{"\n"}                              {item.dataDaCompra}
+                    <Text style = {{color: 'red'}}>{"\t"}{"\t"}{"\t"}{"\t"}{item.situacao}</Text>                           
+                  </Text>
                 
               </TouchableOpacity>
 
@@ -85,7 +91,7 @@ const styles = StyleSheet.create({
     marginTop: '25%',
     width: '80%',
     height: '20%',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     flexDirection: 'row',
     alignSelf: 'center',
     position: 'absolute'
@@ -99,9 +105,14 @@ const styles = StyleSheet.create({
     alignSelf: 'center'
 
   },
-  info: {
+  infoPedidoRecebido: {
     marginTop: 24,
     padding: 40,
     backgroundColor: '#8dd7cf',
   },
+  infoPedidoFeito: {
+    marginTop: 24,
+    padding: 40,
+    backgroundColor: '#836FFF',
+  }
 });
