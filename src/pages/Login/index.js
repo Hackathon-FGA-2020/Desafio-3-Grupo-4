@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { TextInput, Text, View, TouchableOpacity, Image } from "react-native";
+import { TextInput, Text, View, TouchableOpacity, Image, ScrollView, KeyboardAvoidingView } from "react-native";
 
 import { styles } from "./styles";
 
@@ -9,13 +9,12 @@ export default class Login extends Component {
     password: "",
   };
 
-  // login = async () => {
-  //     conts { email, password } = this.state;
-  // }
-
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        behavior={Platform.OS == "android" ? "padding" : "height"}
+        style={styles.container}
+      >
         <View style={styles.logo_image}>
           <Image
             source={require("../../../assets/images/Tela_login/logo_app.png")}
@@ -23,7 +22,7 @@ export default class Login extends Component {
         </View>
 
         <View style={styles.container_text}>
-          <Text style={styles.title}>Agro Market</Text>
+          <Text style={styles.title}>AgroShop</Text>
           <Text style={styles.slogan}>Not Only Vegan Online Market</Text>
         </View>
 
@@ -57,7 +56,7 @@ export default class Login extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }
