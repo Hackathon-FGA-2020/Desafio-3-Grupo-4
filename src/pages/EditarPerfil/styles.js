@@ -9,7 +9,7 @@ export const styles = StyleSheet.create({
     },
     Logo: {
         alignSelf: 'center',
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         width: 120,
         height: 120,
         marginVertical: '7%',

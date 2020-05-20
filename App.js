@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const App = () => (
   <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen name="Cadastro" component={Routes}/>
+        <Stack.Screen name="EditarPerfil" component={Routes}/>
       </Stack.Navigator>
   </NavigationContainer>
 );

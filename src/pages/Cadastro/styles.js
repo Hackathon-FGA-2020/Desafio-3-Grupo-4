@@ -9,11 +9,11 @@ export const styles = StyleSheet.create({
     },
     Logo: {
         alignSelf: 'center',
-        resizeMode: 'contain',
+        resizeMode: 'cover',
         width: 120,
         height: 120,
         marginVertical: '7%',
-        borderRadius: 180,
+        borderRadius: 60,
     },
     container: {
         flex: 1,
@@ -70,4 +70,10 @@ export const styles = StyleSheet.create({
         color: '#FFF',
         fontSize: 17,
     },
+    touchable: {
+        height: 120,
+        width: 120,
+        alignItems: 'center',
+        justifyContent: 'center',
+      },
 });
