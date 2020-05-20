@@ -62,7 +62,10 @@ export default class Produto extends Component {
                 <TouchableOpacity
                   activeOpacity={0.6}
                   style={styles.modalButton}
-                  onPress={() => {this.setState({ showPopUp: false }),this.props.navigation.navigate("Inicial")}}
+                  onPress={() => {
+                    this.setState({ showPopUp: false }),
+                      this.props.navigation.navigate("Inicial");
+                  }}
                 >
                   <Text style={styles.modalButtonText}>
                     Continuar comprando
@@ -71,7 +74,10 @@ export default class Produto extends Component {
                 <TouchableOpacity
                   activeOpacity={0.6}
                   style={styles.modalButton}
-                  onPress={() => {this.setState({ showPopUp: false });this.props.navigation.navigate("Carrinho")}}
+                  onPress={() => {
+                    this.setState({ showPopUp: false });
+                    this.props.navigation.navigate("Carrinho");
+                  }}
                 >
                   <Text style={styles.modalButtonText}>Ir para a cesta</Text>
                 </TouchableOpacity>

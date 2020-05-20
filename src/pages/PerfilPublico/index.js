@@ -21,39 +21,53 @@ export default class PerfilPublico extends React.Component {
       },
       {
         id: "3",
-        key1: "Tomate cereja",
+        nome: "Tomate cereja",
         preco: "R$ 1.90",
         local: "Samambaia - DF",
       },
       {
         id: "4",
-        key1: "Cenoura",
+        nome: "Cenoura",
         preco: "R$ 1.97",
         local: "Aguas Claras - DF",
       },
       {
         id: "5",
-        key1: "Abacate",
+        nome: "Abacate",
         preco: "R$ 1.92",
         local: "Taguatinga - DF",
       },
       {
         id: "6",
-        key1: "Rucula",
+        nome: "Rucula",
         preco: "R$ 1.91",
         local: "Ceilandia - DF",
       },
     ],
   };
 
-  renderDados=({ item }) => (
+  renderDados = ({ item }) => (
     <View>
-      <TouchableOpacity style={styles.produtos} onPress={()=>{}}>
+      <TouchableOpacity
+        style={styles.produtos}
+        onPress={() => {
+          this.props.navigation.navigate("Produto", {
+            product: {
+              id: "0",
+              title: "Cenoura",
+              local: "Brazlândia",
+              state: "DF",
+              price: 1.2,
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+              img: null,
+              seller: "Nivaldo Pereira",
+            },
+          });
+        }}
+      >
         <View style={styles.prodEsquerda}>
-          <Image
-            style={styles.imgProduto}
-            source={require("./icone.png")}
-          />
+          <Image style={styles.imgProduto} source={require("./icone.png")} />
         </View>
 
         <View style={styles.prodDireita}>
@@ -68,7 +82,6 @@ export default class PerfilPublico extends React.Component {
   render() {
     return (
       <View style={styles.background}>
-        
         <View style={styles.informacoes}>
           <View style={styles.esq}>
             <Image style={styles.img} source={require("./usuario.png")} />

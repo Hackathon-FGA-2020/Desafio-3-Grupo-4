@@ -63,9 +63,11 @@ export default class Carrinho extends Component {
     </View>
   );
 
-  calcularTotalDoCarrinho = () => (
-    this.state.DATAcarrinho.reduce((total, valor) => total + valor.preco, 0).toFixed(2)
-  );
+  calcularTotalDoCarrinho = () =>
+    this.state.DATAcarrinho.reduce(
+      (total, valor) => total + valor.preco,
+      0
+    ).toFixed(2);
 
   render() {
     return (
@@ -88,12 +90,16 @@ export default class Carrinho extends Component {
         <View style={styles.situacaoETotal}>
           <View style={styles.informacoesDaCompra}>
             <Text style={styles.texto}>Total:</Text>
-            <Text style={styles.texto}>R$ {this.calcularTotalDoCarrinho()}</Text>
+            <Text style={styles.texto}>
+              R$ {this.calcularTotalDoCarrinho()}
+            </Text>
           </View>
           <View style={styles.submeterCompra}>
             <Button
-              onPress={() => {console.log("clicou")}}
-              title="Eviar pedidos aos vendedores"
+              onPress={() => {
+                console.log("clicou");
+              }}
+              title="Enviar pedidos aos vendedores"
               color="#6558f5"
             />
           </View>
