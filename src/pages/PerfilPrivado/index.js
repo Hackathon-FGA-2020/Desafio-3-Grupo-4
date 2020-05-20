@@ -18,7 +18,7 @@ export default class PerfilPrivado extends React.Component {
           </View>
 
           <View style={styles.dir}>
-            <TouchableOpacity style={styles.btnEditar}>
+            <TouchableOpacity style={styles.btnEditar} onPress={()=>{alert('ir para tela de editar perfil')}}>
               <Text style={styles.txtEditar}>Editar Perfil</Text>
             </TouchableOpacity>
             <Text style={styles.txtVendidos}>100 produtos vendidos</Text>
@@ -29,14 +29,14 @@ export default class PerfilPrivado extends React.Component {
         </View>
 
         <View style={styles.telaOpcoes}>
-          <TouchableOpacity style={styles.botoes}>
-            <Text>Editar Perfil</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.botoes}>
+          <TouchableOpacity style={styles.botoes} onPress={()=>{alert('ir para tela de produtos')}}>
             <Text>Produtos</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.botoes}>
+          <TouchableOpacity style={styles.botoes} onPress={()=>{alert('ir para tela de compras')}}>
             <Text>Compras</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.botoes} onPress={()=>{alert('ir para tela de pedidos')}}>
+            <Text>Pedidos</Text>
           </TouchableOpacity>
         </View>
 

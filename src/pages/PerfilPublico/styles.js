@@ -32,7 +32,7 @@ export const styles = StyleSheet.create({
     botoes:
     {
       backgroundColor: 'white',
-      width: '90%',
+      width: "90%",
       height: '20%',
       borderRadius: 7,
       alignItems: 'center',
@@ -72,12 +72,12 @@ export const styles = StyleSheet.create({
   
     img:
     {
-      resizeMode: 'contain',
+      resizeMode: 'cover',
       marginTop: '10%',
       marginLeft: '10%',
-      width:'80%',
-      height:'50%',
-      borderRadius: 180,
+      width:120,
+      height:120,
+      borderRadius: 60,
     },
   
     esq:
@@ -121,6 +121,7 @@ export const styles = StyleSheet.create({
   
     imgProduto:
     {
+      resizeMode: 'cover',
       marginTop:10,
       marginLeft:'5%',
     },
