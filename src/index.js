@@ -8,6 +8,8 @@ import Produto from "./pages/Produto";
 import Login from "./pages/Login";
 import PerfilPrivado from "./pages/PerfilPrivado";
 import PerfilPublico from "./pages/PerfilPublico";
+import EditarPerfil from "./pages/EditarPerfil";
+import Cadastro from "./pages/Cadastro";
 import Busca from "./pages/Busca";
 import Carrinho from "./pages/Carrinho";
 import ProdutosCadastrados from "./pages/ProdutosCadastrados";
@@ -25,6 +27,8 @@ export default function Routes() {
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="PerfilPrivado" component={PerfilPrivado} />
         <Stack.Screen name="PerfilPublico" component={PerfilPublico} />
+        <Stack.Screen name="EditarPerfil" component={EditarPerfil} />
+        <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Busca" component={Busca} />
         <Stack.Screen name="Carrinho" component={Carrinho} />
         <Stack.Screen name="ProdutosCadastrados" component={ProdutosCadastrados} />
