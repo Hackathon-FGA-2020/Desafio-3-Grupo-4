@@ -3,6 +3,9 @@ import { Text, View, Image, FlatList } from "react-native";
 import Rating from "./rating";
 import { styles } from "./styles";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { FontAwesome } from "@expo/vector-icons";
+
+const dados = [];
 
 export default class PerfilPublico extends React.Component {
   state = {
@@ -47,25 +50,10 @@ export default class PerfilPublico extends React.Component {
   };
 
   renderDados = ({ item }) => (
-    <View>
-      <TouchableOpacity
-        style={styles.produtos}
-        onPress={() => {
-          this.props.navigation.navigate("Produto", {
-            product: {
-              id: "0",
-              title: "Cenoura",
-              local: "Brazlândia",
-              state: "DF",
-              price: 1.2,
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-              img: null,
-              seller: "Nivaldo Pereira",
-            },
-          });
-        }}
-      >
+    <TouchableOpacity onPress={()=> {
+      alert('ir para produtos')
+    }}>
+      <View style={styles.produtos}>
         <View style={styles.prodEsquerda}>
           <Image style={styles.imgProduto} source={require("./icone.png")} />
         </View>
@@ -75,8 +63,8 @@ export default class PerfilPublico extends React.Component {
           <Text style={{ fontSize: 22 }}>{item.preco}</Text>
           <Text>{item.local}</Text>
         </View>
-      </TouchableOpacity>
-    </View>
+      </View>
+    </TouchableOpacity>
   );
 
   render() {
@@ -90,13 +78,27 @@ export default class PerfilPublico extends React.Component {
           </View>
 
           <View style={styles.dir}>
-            <Rating numStars={1} rating={0} />
+            <TouchableOpacity
+              onPress={() => {
+                this.setState({
+                  cor: !this.state.cor,
+                });
+              }}
+            >
+              <FontAwesome
+                name={this.state.cor === true ? "star" : "star-o"}
+                color={this.state.cor === true ? "#836FFF" : "lightgrey"}
+                size={28}
+                style={{
+                  marginTop: 15,
+                }}
+              />
+            </TouchableOpacity>
             <Text style={styles.txtVendidos}>100 produtos vendidos</Text>
             <Text style={styles.avaliacoes}>53 avaliações</Text>
             <Rating />
           </View>
         </View>
-
         <View style={styles.telaProdutos}>
           <FlatList
             style={{ width: "90%" }}
