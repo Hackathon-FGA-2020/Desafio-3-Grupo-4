@@ -23,7 +23,15 @@ export default class Busca extends Component {
   };
 
   renderObjeto = ({ item }) => (
-    <TouchableOpacity onPress={() => console.log("click")}>
+    <TouchableOpacity
+      onPress={() => {
+        if (this.state.value === "vendedores") {
+          this.props.navigation.navigate("PerfilPublico");
+        } else {
+          this.props.navigation.navigate("Categoria");
+        }
+      }}
+    >
       <View style={styles.objeto}>
         <Image
           style={styles.fotoObjeto} //Mudar para foto da catetegoria

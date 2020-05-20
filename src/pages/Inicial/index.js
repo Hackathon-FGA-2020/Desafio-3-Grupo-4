@@ -79,7 +79,7 @@ export default class Inicial extends Component {
   };
 
   renderVendedor = ({ item }) => (
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Login")}}>
       <View style={styles.perfil}>
         <Image
           style={styles.fotoVendedor}

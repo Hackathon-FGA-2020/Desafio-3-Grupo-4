@@ -45,13 +45,13 @@ export default class Login extends Component {
 
         <View style={styles.button}>
           <View style={styles.buttonL}>
-            <TouchableOpacity onPress={() => null}>
+            <TouchableOpacity onPress={()=>{this.props.navigation.navigate("Inicial")}}>
               <Text style={styles.buttonText}>Logar</Text>
             </TouchableOpacity>
           </View>
 
           <View style={styles.buttonR}>
-            <TouchableOpacity onPress={() => null}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("Cadastro")}>
               <Text style={styles.buttonText}>Cadastre-se</Text>
             </TouchableOpacity>
           </View>

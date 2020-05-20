@@ -8,37 +8,37 @@ export default class PerfilPublico extends React.Component {
   state = {
     dados: [
       {
-        id: 1,
+        id: "1",
         nome: "Alface americana",
         preco: "R$ 1.99",
         local: "Aguas Lindas - DF",
       },
       {
-        id: 2,
+        id: "2",
         nome: "Alface lisa",
         preco: "R$ 1.95",
         local: "Brazlandia - DF",
       },
       {
-        id: 3,
+        id: "3",
         key1: "Tomate cereja",
         preco: "R$ 1.90",
         local: "Samambaia - DF",
       },
       {
-        id: 4,
+        id: "4",
         key1: "Cenoura",
         preco: "R$ 1.97",
         local: "Aguas Claras - DF",
       },
       {
-        id: 5,
+        id: "5",
         key1: "Abacate",
         preco: "R$ 1.92",
         local: "Taguatinga - DF",
       },
       {
-        id: 6,
+        id: "6",
         key1: "Rucula",
         preco: "R$ 1.91",
         local: "Ceilandia - DF",
@@ -48,7 +48,7 @@ export default class PerfilPublico extends React.Component {
 
   renderDados=({ item }) => (
     <View>
-      <TouchableOpacity style={styles.produtos}>
+      <TouchableOpacity style={styles.produtos} onPress={()=>{}}>
         <View style={styles.prodEsquerda}>
           <Image
             style={styles.imgProduto}

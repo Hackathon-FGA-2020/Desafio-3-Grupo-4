@@ -156,6 +156,7 @@ export default class Cadastro extends Component {
             <View style={styles.numeroComplemento}>
               <TextInput
                 style={styles.inputNum}
+                keyboardType='numeric'
                 placeholder="N°"
                 autoCorrect={false}
                 value={this.state.num}
@@ -205,11 +206,9 @@ export default class Cadastro extends Component {
 
             <TouchableOpacity
               style={styles.submitBtn}
-              onPress={() => {
-                console.log(this.state);
-              }}
+              onPress={() => {console.log(this.state),this.props.navigation.navigate("Inicial")}}
             >
-              <Text style={styles.submitText}>Cadastrar</Text>
+              <Text style={styles.submitText} >Cadastrar</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
