@@ -8,7 +8,7 @@ export default class Inicial extends Component {
     return (
       <View style={styles.container}>
         <Text> Commit Inicial </Text>
-        <Button title="Categorias" onPress={() => this.props.navigation.navigate("Categorias")}></Button>
+        <Button title="Produto" onPress={() => this.props.navigation.navigate("Produto")}></Button>
       </View>
     );
   }
