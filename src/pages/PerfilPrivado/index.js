@@ -32,10 +32,10 @@ export default class PerfilPrivado extends React.Component {
           <TouchableOpacity style={styles.botoes} onPress={()=> this.props.navigation.navigate("ProdutosCadastrados")}>
             <Text>Produtos</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.botoes} onPress={()=>{alert('ir para tela de compras')}}>
+          <TouchableOpacity style={styles.botoes} onPress={()=> this.props.navigation.navigate("ComprasEfetuadas")}>
             <Text>Compras</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.botoes} onPress={()=>{alert('ir para tela de pedidos')}}>
+          <TouchableOpacity style={styles.botoes} onPress={()=> this.props.navigation.navigate("DetalhesPedidoFeito")}>
             <Text>Pedidos</Text>
           </TouchableOpacity>
         </View>

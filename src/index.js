@@ -13,6 +13,9 @@ import Cadastro from "./pages/Cadastro";
 import Busca from "./pages/Busca";
 import Carrinho from "./pages/Carrinho";
 import ProdutosCadastrados from "./pages/ProdutosCadastrados";
+import ComprasEfetuadas from "./pages/ComprasEfetuadas";
+import PedidoRecebido from "./pages/DetalhesCompra";
+import PedidoFeito from "./pages/DetalhesPedidoFeito";
 
 const Stack = createStackNavigator();
 
@@ -31,7 +34,13 @@ export default function Routes() {
         <Stack.Screen name="Cadastro" component={Cadastro} />
         <Stack.Screen name="Busca" component={Busca} />
         <Stack.Screen name="Carrinho" component={Carrinho} />
-        <Stack.Screen name="ProdutosCadastrados" component={ProdutosCadastrados} />
+        <Stack.Screen
+          name="ProdutosCadastrados"
+          component={ProdutosCadastrados}
+        />
+        <Stack.Screen name="ComprasEfetuadas" component={ComprasEfetuadas} />
+        <Stack.Screen name="DetalhesCompra" component={PedidoRecebido} />
+        <Stack.Screen name="DetalhesPedidoFeito" component={PedidoFeito} />
       </Stack.Navigator>
     </>
   );
