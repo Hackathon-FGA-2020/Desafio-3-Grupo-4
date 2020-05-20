@@ -57,13 +57,15 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   buttonBag: {
+    alignSelf: "center",
+    bottom: 40,
+    position: "absolute",
     elevation: 5,
     borderRadius: 5,
-    marginTop: 15,
     backgroundColor: "#836FFF",
-    marginHorizontal: 50,
     alignItems: "center",
-    padding: 15,
+    paddingVertical: 15,
+    paddingHorizontal: 30,
   },
   modalContainer: {
     flex: 1,
