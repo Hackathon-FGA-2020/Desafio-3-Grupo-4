@@ -111,7 +111,8 @@ export default class Inicial extends Component {
 
         <View style={styles.opcoes}>
           <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("ProdutosCadastrados")}
+            onPress={() => this.props.navigation.navigate("PerfilPrivado")}
+            onLongPress={() => this.props.navigation.navigate("PerfilPublico")}
           >
             <Image
               style={styles.botaoPerfil}
