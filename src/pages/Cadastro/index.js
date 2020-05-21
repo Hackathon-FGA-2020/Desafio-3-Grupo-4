@@ -3,16 +3,18 @@ import {
   Text,
   KeyboardAvoidingView,
   Image,
+  Alert,
   View,
   TextInput,
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { TextInputMask } from "react-native-masked-text";
+import { TextInputMask, } from "react-native-masked-text";
 import { styles } from "./styles";
 import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
+import { not } from "react-native-reanimated";
 
 export default class Cadastro extends Component {
   state = {
@@ -111,6 +113,7 @@ export default class Cadastro extends Component {
                   cpf: text,
                 });
               }}
+              ref={(ref) => this.cpfField = ref}
             />
 
             <TextInputMask
@@ -134,6 +137,7 @@ export default class Cadastro extends Component {
               style={styles.input}
               placeholder="CEP"
               type={"zip-code"}
+              ref={(ref) => this.cepField = ref}
               value={this.state.zipCode}
               onChangeText={(text) => {
                 this.setState({
@@ -206,7 +210,7 @@ export default class Cadastro extends Component {
 
             <TouchableOpacity
               style={styles.submitBtn}
-              onPress={() => {console.log(this.state),this.props.navigation.navigate("Inicial")}}
+              onPress={() => {this.verificaFormulario()}}
             >
               <Text style={styles.submitText} >Cadastrar</Text>
             </TouchableOpacity>
@@ -214,6 +218,25 @@ export default class Cadastro extends Component {
         </KeyboardAvoidingView>
       </ScrollView>
     );
+  }
+
+  verificaFormulario(){
+    if (this.state.senha!==this.state.senhaRepetida){
+      return Alert.alert("As senhas não são iguais, por favor, digite novamente");
+    }
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (!re.test(String(this.state.email).toLowerCase())) {
+      return Alert.alert("Digite um email válido");
+    }
+    const cpfIsValid = this.cpfField.isValid()
+    if (!cpfIsValid){
+      return Alert.alert("Digite um CPF válido");
+    }
+    const cepIsValid = this.cepField.isValid()
+    if (!cepIsValid){
+      return Alert.alert("Digite um CEP válido");
+    }
+    return this.props.navigation.navigate("Inicial")
   }
 
   componentDidMount() {

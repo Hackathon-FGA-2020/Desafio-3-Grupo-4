@@ -15,7 +15,7 @@ import Carrinho from "./pages/Carrinho";
 import ProdutosCadastrados from "./pages/ProdutosCadastrados";
 import ComprasEfetuadas from "./pages/ComprasEfetuadas";
 import PedidoRecebido from "./pages/DetalhesCompra";
-import PedidoFeito from "./pages/DetalhesPedidoFeito";
+import DetalhesPedidoFeito from "./pages/DetalhesPedidoFeito";
 
 const Stack = createStackNavigator();
 
@@ -40,7 +40,10 @@ export default function Routes() {
         />
         <Stack.Screen name="ComprasEfetuadas" component={ComprasEfetuadas} />
         <Stack.Screen name="DetalhesCompra" component={PedidoRecebido} />
-        <Stack.Screen name="DetalhesPedidoFeito" component={PedidoFeito} />
+        <Stack.Screen
+          name="DetalhesPedidoFeito"
+          component={DetalhesPedidoFeito}
+        />
       </Stack.Navigator>
     </>
   );

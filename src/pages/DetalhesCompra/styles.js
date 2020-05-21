@@ -3,51 +3,40 @@ import { StyleSheet, Text, KeyboardAvoidingView, Image, View, FlatList, Touchabl
 
 export const styles = StyleSheet.create({
     background: {
-        flex : 1,
-        backgroundColor: '#8dd7cf',
+        flex: 1,
+        backgroundColor: '#2194BF',
+    },
+    cabecalho: {
+        flex: 2,
+        justifyContent: "center",
+        alignItems: "center",
     },
     titulo: {
         alignItems: 'center',
-        marginTop: '15%',
+        justifyContent: "center",
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#161925",
     },
     container: {
-       backgroundColor: '#3cb371',
-       marginTop: '30%',
-       width: '100%',
-       height: '90%', 
-       position: 'absolute'
+        flex: 8,
+        backgroundColor: '#CBF7ED',
+        borderRadius: 2,
+        borderWidth: 5,
+        borderColor: "#161925",
+        marginHorizontal: 10,
+        marginVertical: 10,
+        padding: 15,
     },
-    nomeProduto: {
-        textAlign: 'left',
-        fontWeight: 'bold',
-        marginTop: '15%',
-        marginLeft: '5%'
+    texto: {
+        fontSize: 20,
+        color: "#161925",
+        paddingVertical: 10,
     },
-    dataPedido: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%'
+    produtos: {
+        fontSize: 18,
+        color: "#161925",
+        paddingLeft: 30,
     },
-    comprador: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%'
-    },
-    precoTotal: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%',
-        fontSize: 35
-    },
-    situacao: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%',
-        color: 'red',
-        fontSize: 20
-    }
+
 });

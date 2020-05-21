@@ -1,63 +1,44 @@
-import { StyleSheet, Text, KeyboardAvoidingView, Image, View, FlatList, TouchableOpacity } from 'react-native';
 
+import { StyleSheet, Text, KeyboardAvoidingView, Image, View, FlatList, TouchableOpacity } from 'react-native';
 
 export const styles = StyleSheet.create({
     background: {
         flex: 1,
-        backgroundColor: '#8dd7cf',
+        backgroundColor: '#2194BF',
     },
-    Titulo: {
+    cabecalho: {
+        flex: 2,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    titulo: {
         alignItems: 'center',
-        marginTop: '15%',
+        justifyContent: "center",
+        fontSize: 30,
+        fontWeight: "bold",
+        color: "#161925",
     },
-    containerLista: {
-        position: 'absolute',
-        backgroundColor: 'white',
-        marginTop: '30%',
-        width: '100%',
-        height: '110%',
+    lista: {
+        flex: 8,
     },
-    info:{
-        marginTop: 24,
-        padding: 50,
-        backgroundColor: '#836FFF',
-        flexDirection: 'column',
-        marginBottom: 8
+    container: {
+        backgroundColor: '#CBF7ED',
+        borderRadius: 2,
+        borderWidth: 5,
+        borderColor: "#161925",
+        marginHorizontal: 10,
+        marginVertical: 10,
+        padding: 15,
     },
-    precoTotal: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'auto',
-        marginLeft: '5%',
-        fontSize: 35,
-    },
-    situacao: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%',
-        color: 'red',
+    texto: {
         fontSize: 20,
+        color: "#161925",
+        paddingVertical: 10,
     },
-    vendedor: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%',
+    produtos: {
+        fontSize: 18,
+        color: "#161925",
+        paddingLeft: 30,
     },
-    produtos:{
-        textAlign: 'left',
-        fontWeight: 'bold',
-        marginTop: '15%',
-        marginLeft: '5%',
-        
-    },
-    dataDoPedido: {
-        fontWeight: 'bold',
-        marginTop: '15%',
-        textAlign: 'left',
-        marginLeft: '5%',
-        
-    }
 
 });

@@ -5,8 +5,8 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    backgroundColor: '#8dd7cf',
-    padding: 20,
+    backgroundColor: '#2194BF',
+    paddingHorizontal: 20,
   },
   input: {
     height: 45,
@@ -25,26 +25,27 @@ export const styles = StyleSheet.create({
     // alignItems: 'center',
   },
   buttonL: {
-    backgroundColor: '#6558F5',
+    backgroundColor: '#161925',
     height: 45,
     borderRadius: 10,
     paddingHorizontal: 20,
   },
   buttonR: {
-    backgroundColor: '#6558F5',
+    backgroundColor: '#161925',
     height: 45,
     borderRadius: 10,
     paddingHorizontal: 20,
   },
   buttonText: {
-    color: '#FFF',
+    color: '#CBF7ED',
     fontWeight: 'bold',
     marginVertical: 12,
   },
   text: {
+    color: "#CBF7ED",
     alignSelf: 'flex-end',
-    fontSize: 10,
-    marginEnd: 10,
+    fontSize: 12,
+    marginVertical: 5,
   },
   container_text: {
     marginVertical: 40,
@@ -52,9 +53,11 @@ export const styles = StyleSheet.create({
   },
   title: {
     alignSelf: 'center',
+    color: "#161925",
     fontSize: 60,
   },
   slogan: {
+    color: "#161925",
     alignSelf: 'center',
   },
   logo_image: {

@@ -109,6 +109,7 @@ export default class Cadastro extends Component {
               style={styles.input}
               placeholder="CEP"
               type={"zip-code"}
+              ref={(ref) => this.cepField = ref}
               value={this.state.zipCode}
               onChangeText={(text) => {
                 this.setState({
@@ -179,13 +180,24 @@ export default class Cadastro extends Component {
               }}
             />
 
-            <TouchableOpacity style={styles.submitBtn} onPress={() => {console.log(this.state),this.props.navigation.navigate("PerfilPrivado")}}>
+            <TouchableOpacity style={styles.submitBtn} onPress={() => {}}>
               <Text style={styles.submitText}>Concluir</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
       </ScrollView>
     );
+  }
+
+  verificaFormulario(){
+    if (this.state.senha!==this.state.senhaRepetida){
+      return Alert.alert("As senhas não são iguais, por favor, digite novamente");
+    }
+    const cepIsValid = this.cepField.isValid()
+    if (!cepIsValid){
+      return Alert.alert("Digite um CEP válido");
+    }
+    return this.props.navigation.navigate("PerfilPrivado")
   }
 
   componentDidMount() {

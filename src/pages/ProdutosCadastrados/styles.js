@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
 
     container: {
         flex: 1,
-        backgroundColor: '#8dd7cf',
+        backgroundColor: '#2194BF',
         justifyContent:'center',
     },
     adicionarProduto: {
@@ -13,6 +13,9 @@ export const styles = StyleSheet.create({
         justifyContent: "center",
         marginVertical: 20,
         marginHorizontal: 20,
+        borderWidth: 2,
+        borderRadius: 7,
+        borderColor: "#161925",
         paddingHorizontal: 10,
         backgroundColor: "white",
     },
@@ -22,8 +25,8 @@ export const styles = StyleSheet.create({
         marginTop: 30,
     },
     textoBotao: {
-        fontSize: 25,
-        color: "#293845",
+        fontSize: 30,
+        color: "#161925",
     },
     fotoBotao: {
         width: 35,
@@ -37,11 +40,14 @@ export const styles = StyleSheet.create({
         flex: 1,
         marginVertical: 10,
         flexDirection: "row",
+        borderWidth: 2,
+        borderRadius: 7,
+        borderColor: "#161925",
         backgroundColor: "white",
         paddingVertical: 20,
     },
     titulo: {
-        fontSize: 24,
+        fontSize: 28,
         color: "#293845",
     },
     nomeProduto: {
@@ -51,7 +57,8 @@ export const styles = StyleSheet.create({
     },
     botaoRemover: {
         flex:1,
-        alignItems: "center",  
+        alignItems: "center", 
+        justifyContent: "center", 
     },
     fotoBotaoRemover: {
         width: 30,

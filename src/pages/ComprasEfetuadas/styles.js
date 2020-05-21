@@ -4,39 +4,68 @@ import { StyleSheet, Text, KeyboardAvoidingView, Image, View, FlatList, Touchabl
 export const styles = StyleSheet.create({
     background: {
       flex: 1,
-      backgroundColor: '#8dd7cf',
+      backgroundColor: '#2194BF',
     },
     Titulo: {
       alignItems: 'center',
-      marginTop: '15%',
+      marginTop: 20,
     },
     containerBotoes: {
-      backgroundColor: '#8dd7cf',
-      marginTop: '25%',
-      width: '80%',
-      height: '20%',
-      justifyContent: 'space-evenly',
-      flexDirection: 'row',
-      alignSelf: 'center',
-      position: 'absolute'
+      marginVertical: 10,
+      flexDirection: "row",
+      // alignItems: "center",
+      fontSize: 18,
+      color: "#293845",
+      justifyContent: "space-evenly",
+    },
+    botoes: {
+      alignItems: "center",
+      flexDirection: "column",
+    },
+    textoBotao: {
+      fontSize: 15,
+      alignSelf: "center",
     },
     containerLista:{
-      position: 'absolute',
-      backgroundColor: 'white',
-      marginTop: '50%',
-      width: '100%',
-      height: '110%',
-      alignSelf: 'center'
-  
+      flex: 6,
+      marginHorizontal: 20,
     },
-    infoPedidoRecebido: {
-      marginTop: 24,
-      padding: 40,
-      backgroundColor: '#8dd7cf',
+    item: {
+      flex: 1,
+      marginVertical: 10,
+      flexDirection: "row",
+      borderWidth: 2,
+      borderRadius: 7,
+      borderColor: "#161925",
+      backgroundColor: "white",
+      flexDirection: "column",
+      paddingVertical: 10,
     },
-    infoPedidoFeito: {
-      marginTop: 24,
-      padding: 40,
-      backgroundColor: '#836FFF',
-    }
+    produtoComprador: {
+      marginLeft: 10,
+      flexDirection: "column",
+      alignItems: "center",
+    }, 
+    dados: {
+      flex: 2,
+      paddingVertical: 10,
+      flexDirection: "row",
+      justifyContent: "space-around",
+      alignItems: "center",
+    },
+    texto: {
+      fontSize: 16,
+      color: "#161925",
+    },
+    campoPreco: {
+      marginLeft: 10,
+      alignItems: "center",
+    }, 
+    dataSituacao: {
+      marginLeft: 10,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-around",
+      alignItems: "center",
+    },  
   });
