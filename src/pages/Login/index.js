@@ -17,7 +17,7 @@ export default class Login extends Component {
       >
         <View style={styles.logo_image}>
           <Image
-            source={require("../../../assets/images/Tela_login/logo_app.png")}
+            source={require("../../../assets/logo.png")}
           />
         </View>
 

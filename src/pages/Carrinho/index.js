@@ -102,7 +102,7 @@ export default class Carrinho extends Component {
               color="#23395B"
             >
               <View style={styles.botaoSubmeterCompra}>
-                <Text style={styles.textoBotao}>Enviar produtos aos vendedores</Text>
+                <Text style={styles.textoBotao}>Finalizar compra</Text>
               </View>
             </TouchableOpacity>
           </View>
