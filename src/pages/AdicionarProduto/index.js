@@ -8,7 +8,7 @@ import * as ImagePicker from "expo-image-picker";
 import { Picker } from "@react-native-community/picker";
 import { TextInputMask } from 'react-native-masked-text'
 
-export default class Produto extends Component {
+export default class AdicionarProduto extends Component {
 
   state = {
     categoria: '',
