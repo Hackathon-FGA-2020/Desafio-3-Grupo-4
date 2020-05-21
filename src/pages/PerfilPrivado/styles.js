@@ -4,10 +4,9 @@ export const styles = StyleSheet.create({
 
   background: 
   {
-    paddingTop: '10%',
     flex: 1,
-    backgroundColor: '#8dd7cf',
     alignItems: 'center',
+    backgroundColor: "#01BAEF",
     justifyContent: 'center',
   },
 
@@ -15,15 +14,18 @@ export const styles = StyleSheet.create({
   {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: 'white',
+    backgroundColor: "red",
+    borderColor: "#161925",
+    borderWidth: 2,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     width: '100%',
   },
 
   telaOpcoes:
   {
     width: '100%',
+    backgroundColor: "#2194BF",
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
@@ -31,50 +33,53 @@ export const styles = StyleSheet.create({
 
   botoes:
   {
-    backgroundColor: 'white',
+    backgroundColor: '#23395B',
     width: '90%',
     height: '20%',
     borderRadius: 7,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 15,
-    borderWidth: 1,
-    borderColor: 'lightgrey',
+    borderWidth: 2,
+    borderColor: '#161925',
+  },
+
+  textoBotoes: {
+    fontSize: 20,
+    color: "#CBF7ED"
   },
 
   btnEditar:
   {
     direction: 'rtl',
-    backgroundColor: '#836FFF',
+    backgroundColor: '#2194BF',
+    // color="#23395B",
     width: '50%',
     height: '20%',
     borderRadius: 7,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: 'lightgrey',
+    borderColor: '#161925',
     marginTop: '10%',
     
   },
 
   nome:
   {
-    marginRight: '10%',
-    marginLeft: '10%',
-    marginTop: '10%',
-
+    margin: 10,
+    fontSize: 16,
+    color: "#CBF7ED"
   },
 
   txtEditar:
   {
-    color:'white',
+    color:'#CBF7ED',
   },
 
   img:
   {
     resizeMode: 'cover',
-    marginTop: '10%',
-    marginLeft: '10%',
     width: 120,
     height: 120,
     borderRadius: 60,
@@ -84,27 +89,28 @@ export const styles = StyleSheet.create({
   {
     height:'100%',
     flex:1,
-    backgroundColor:'white',
+    paddingTop: 15,
+    alignItems: "center",
+    backgroundColor:'#23395B',
 
   },
 
   dir:
   {
     flex:1,
-    backgroundColor:'white',
+    backgroundColor:'#23395B',
     height: '100%',
     alignItems: 'center',
+    justifyContent: "space-evenly",
   },
 
   txtVendidos:
   {
-    marginTop: '10%',
     flex:0,
   },
 
   avaliacoes:
   {
-    marginTop: '10%',
     flex: 1,
   }
 });

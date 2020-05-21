@@ -4,9 +4,8 @@ export const styles = StyleSheet.create({
 
     background: 
     {
-      paddingTop: '10%',
       flex: 1,
-      backgroundColor: '#8dd7cf',
+      backgroundColor: '#2194BF',
       alignItems: 'center',
       justifyContent: 'center',
     },
@@ -14,19 +13,23 @@ export const styles = StyleSheet.create({
     informacoes:
     {
       flex: 1,
-      flexDirection: 'row',
-      backgroundColor: 'white',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '100%',
+    flexDirection: 'row',
+    backgroundColor: "red",
+    borderColor: "#161925",
+    borderWidth: 2,
+    alignItems: 'center',
+    justifyContent: 'space-evenly',
+    width: '100%',
     },
   
     telaProdutos:
     {
       width: '100%',
       flex: 2,
-      alignItems: 'center',
-      justifyContent: 'center',
+      marginHorizontal: 10,
+      flexDirection: "column",
+      alignItems: "center",
+      justifyContent: "space-around",
     },
   
     botoes:
@@ -59,9 +62,9 @@ export const styles = StyleSheet.create({
   
     nome:
     {
-      marginRight: '10%',
-      marginLeft: '10%',
-      marginTop: '10%',
+      margin: 10,
+    fontSize: 16,
+    color: "#CBF7ED"
   
     },
   
@@ -73,8 +76,6 @@ export const styles = StyleSheet.create({
     img:
     {
       resizeMode: 'cover',
-      marginTop: '10%',
-      marginLeft: '10%',
       width:120,
       height:120,
       borderRadius: 60,
@@ -84,16 +85,19 @@ export const styles = StyleSheet.create({
     {
       height:'100%',
       flex:1,
-      backgroundColor:'white',
+      paddingTop: 15,
+      alignItems: "center",
+      backgroundColor:'#23395B',
   
     },
   
     dir:
     {
       flex:1,
-      backgroundColor:'white',
+      backgroundColor:'#23395B',
       height: '100%',
       alignItems: 'center',
+      justifyContent: "space-evenly",
     },
   
     txtVendidos:
@@ -110,9 +114,9 @@ export const styles = StyleSheet.create({
   
     produtos:
     {
-        marginTop: '10%',
         height: 130,
         backgroundColor: 'white',
+        marginVertical: 15,
         borderColor: 'lightgrey',
         borderWidth: 1,
         borderRadius: 7,
@@ -122,21 +126,20 @@ export const styles = StyleSheet.create({
     imgProduto:
     {
       resizeMode: 'cover',
-      marginTop:10,
-      marginLeft:'5%',
     },
   
     prodDireita:
     {
       flex: 1,
       alignItems: 'baseline',
-      justifyContent: 'flex-start',
-      marginTop: 15,
+      justifyContent: 'center',
     },
   
     prodEsquerda:
     {
       flex: 1,
+      alignItems: "center",
+      justifyContent: "center",
     }
   
   });

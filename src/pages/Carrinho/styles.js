@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: "#8dd7cf"
+        backgroundColor: "#2194BF",
     },
     tituloSituacao: {
         flex: 1,
@@ -14,14 +14,14 @@ export const styles = StyleSheet.create({
     titulo: {
         padding: 20,
         fontSize: 30,
-        color: "#293845",
+        color: "#161925",
     },
     produtosNoCarrinho: {
         flex: 5,
         alignItems: "center",
     },
     informacoesDoProduto: {
-        width:300,
+        width:350,
         height:100,
         backgroundColor: "white",
         borderRadius: 20,
@@ -53,24 +53,38 @@ export const styles = StyleSheet.create({
     },
     situacaoETotal: {
         flex: 2,
+        borderColor: "#161925",
+        borderWidth: 2,
         flexDirection: "column",
     },
     informacoesDaCompra: {
-        flex: 1,
+        flex: 2,
         flexDirection: "row",
         marginVertical: 10,
         alignItems: "center",
         justifyContent: "space-around",
     },
     texto: {
-        fontSize: 25,
+        fontSize: 30,
         fontWeight: "bold",
-        color: "#293845",
+        color: "#CBF7ED",
     },
     submeterCompra: {
-        flex: 1,
-        padding: 14,
+        flex: 2,
         justifyContent: "center",
+    },
+    botaoSubmeterCompra: {
+        flex: 1,
+        paddingVertical: 25,
+        marginHorizontal: 10,
+        borderRadius: 7,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor:"#161925",
+    },
+    textoBotao: {
+        fontSize: 20,
+        color: "#CBF7ED",
     },
 
 });

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8DD7CF",
+    backgroundColor: '#2194BF',
   },
   busca: {
     flex: 1,
@@ -15,7 +15,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     height: 50,
     borderWidth: 2,
-    borderColor: "#71AFA7",
+    borderColor: "#161925",
     borderRadius: 20,
     backgroundColor: "white",
   },
@@ -57,6 +57,7 @@ export const styles = StyleSheet.create({
   },
   nomeObjeto: {
     paddingTop: 4,
+    color: "#161925",
     textAlignVertical: "bottom",
   },
 });

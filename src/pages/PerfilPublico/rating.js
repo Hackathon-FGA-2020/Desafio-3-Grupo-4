@@ -79,9 +79,6 @@ class Star extends React.Component {
         name={this.props.filled === true ? "star" : "star-o"}
         color="#836FFF"
         size={28}
-        style={{
-          marginBottom: 30,
-        }}
       />
     );
   }

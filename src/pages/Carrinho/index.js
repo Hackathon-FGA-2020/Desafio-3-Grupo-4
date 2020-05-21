@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Text, View, StatusBar, Button } from "react-native";
 import { styles } from "./styles";
-import { FlatList } from "react-native-gesture-handler";
+import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
 export default class Carrinho extends Component {
   state = {
@@ -95,13 +95,16 @@ export default class Carrinho extends Component {
             </Text>
           </View>
           <View style={styles.submeterCompra}>
-            <Button
+            <TouchableOpacity
               onPress={() => {
                 console.log("clicou");
               }}
-              title="Enviar pedidos aos vendedores"
-              color="#6558f5"
-            />
+              color="#23395B"
+            >
+              <View style={styles.botaoSubmeterCompra}>
+                <Text style={styles.textoBotao}>Enviar produtos aos vendedores</Text>
+              </View>
+            </TouchableOpacity>
           </View>
         </View>
       </View>

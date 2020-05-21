@@ -46,7 +46,7 @@ export default class Produto extends Component {
           activeOpacity={0.6}
           onPress={() => this.setState({ showPopUp: true })}
         >
-          <Text style={{ color: "white" }}>Adicionar à cesta</Text>
+          <Text style={{ color: "#CBF7ED" }}>Adicionar à cesta</Text>
         </TouchableOpacity>
         <Modal
           visible={this.state.showPopUp}

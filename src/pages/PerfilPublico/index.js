@@ -50,10 +50,25 @@ export default class PerfilPublico extends React.Component {
   };
 
   renderDados = ({ item }) => (
-    <TouchableOpacity onPress={()=> {
-      alert('ir para produtos')
-    }}>
-      <View style={styles.produtos}>
+    <View >
+      <TouchableOpacity
+        style={styles.produtos}
+        onPress={() => {
+          this.props.navigation.navigate("Produto", {
+            product: {
+              id: "0",
+              title: "Cenoura",
+              local: "Brazlândia",
+              state: "DF",
+              price: 1.2,
+              description:
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
+              img: null,
+              seller: "Nivaldo Pereira",
+            },
+          });
+        }}
+      >
         <View style={styles.prodEsquerda}>
           <Image style={styles.imgProduto} source={require("./icone.png")} />
         </View>
@@ -63,8 +78,8 @@ export default class PerfilPublico extends React.Component {
           <Text style={{ fontSize: 22 }}>{item.preco}</Text>
           <Text>{item.local}</Text>
         </View>
-      </View>
-    </TouchableOpacity>
+      </TouchableOpacity>
+    </View>
   );
 
   render() {
@@ -94,9 +109,9 @@ export default class PerfilPublico extends React.Component {
                 }}
               />
             </TouchableOpacity>
-            <Text style={styles.txtVendidos}>100 produtos vendidos</Text>
-            <Text style={styles.avaliacoes}>53 avaliações</Text>
+            <Text style={styles.nome}>100 produtos vendidos</Text>
             <Rating />
+            <Text style={styles.nome}>53 avaliações</Text>
           </View>
         </View>
         <View style={styles.telaProdutos}>
@@ -105,6 +120,7 @@ export default class PerfilPublico extends React.Component {
             data={this.state.dados}
             keyExtractor={(item) => item.id}
             renderItem={this.renderDados}
+            showsVerticalScrollIndicator={false}
           />
         </View>
       </View>

@@ -88,14 +88,14 @@ export default class Busca extends Component {
                 <Text>Categorias</Text>
                 <RadioButton
                   status="checked"
-                  color="#71AFA7"
+                  color="#161925"
                   value="categorias"
                 />
               </View>
 
               <View style={styles.botoes}>
                 <Text>Vendedores</Text>
-                <RadioButton color="#71AFA7" value="vendedores" />
+                <RadioButton color="#161925" value="vendedores" />
               </View>
             </RadioButton.Group>
           </View>

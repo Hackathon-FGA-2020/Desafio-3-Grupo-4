@@ -21,22 +21,22 @@ export default class PerfilPrivado extends React.Component {
             <TouchableOpacity style={styles.btnEditar} onPress={() => this.props.navigation.navigate("EditarPerfil")}>
               <Text style={styles.txtEditar}>Editar Perfil</Text>
             </TouchableOpacity>
-            <Text style={styles.txtVendidos}>100 produtos vendidos</Text>
-            <Text style={styles.avaliacoes}>53 avaliações</Text>
+            <Text style={styles.nome}>100 produtos vendidos</Text>
             <Rating/>
+            <Text style={styles.nome}>53 avaliações</Text>
           </View>
 
         </View>
 
         <View style={styles.telaOpcoes}>
           <TouchableOpacity style={styles.botoes} onPress={()=> this.props.navigation.navigate("ProdutosCadastrados")}>
-            <Text>Produtos</Text>
+            <Text style={styles.textoBotoes}>Produtos</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.botoes} onPress={()=> this.props.navigation.navigate("ComprasEfetuadas")}>
-            <Text>Compras</Text>
+            <Text style={styles.textoBotoes}>Compras</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.botoes} onPress={()=> this.props.navigation.navigate("DetalhesPedidoFeito")}>
-            <Text>Pedidos</Text>
+            <Text style={styles.textoBotoes}>Pedidos</Text>
           </TouchableOpacity>
         </View>
 

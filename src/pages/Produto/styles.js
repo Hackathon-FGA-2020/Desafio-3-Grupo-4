@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#94d1cb",
+    backgroundColor: "#2194BF",
   },
   productContainer: {
     marginTop: 10,
@@ -26,19 +26,21 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   titleProduct: {
+    color: "#161925",
     fontWeight: "bold",
     fontSize: 20,
   },
   localProduct: {
     fontWeight: "bold",
-    color: "grey",
+    color: "#161925",
   },
   sellerProduct: {
     fontWeight: "bold",
-    color: "grey",
+    color: "#161925",
   },
   priceProduct: {
     fontSize: 20,
+    color: "#161925",
     fontWeight: "bold",
     textAlign: "center",
   },
@@ -47,7 +49,7 @@ export const styles = StyleSheet.create({
     padding: 15,
     elevation: 5,
     borderRadius: 10,
-    backgroundColor: "#b8e0dc",
+    backgroundColor: "#CBF7ED",
     borderWidth: 3,
     borderColor: "#3d8f87",
   },
@@ -62,7 +64,7 @@ export const styles = StyleSheet.create({
     position: "absolute",
     elevation: 5,
     borderRadius: 5,
-    backgroundColor: "#836FFF",
+    backgroundColor: "#161925",
     alignItems: "center",
     paddingVertical: 15,
     paddingHorizontal: 30,
@@ -88,7 +90,7 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   modalButton: {
-    backgroundColor: "#836FFF",
+    backgroundColor: "#161925",
     padding: 8,
     elevation: 5,
     borderRadius: 5,
@@ -96,6 +98,6 @@ export const styles = StyleSheet.create({
   },
   modalButtonText: {
     textAlign: "center",
-    color: "white",
+    color: "#CBF7ED",
   },
 });

@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#8dd7cf",
+    backgroundColor: "#2194BF",
   },
   opcoes: {
     flex: 0.8,
@@ -32,9 +32,9 @@ export const styles = StyleSheet.create({
   },
   titulo: {
     paddingLeft: 10,
-    paddingBottom: 4,
+    paddingBottom: 8,
     fontSize: 30,
-    color: "#293845",
+    color: "#161925",
   },
   vendedores: {
     flex: 2,
@@ -59,11 +59,15 @@ export const styles = StyleSheet.create({
     height: 70,
   },
   listaCategorias: {
+    paddingTop: 10,
     flex: 1,
   },
   linhaDaColunadasCategorias: {
     flex: 1,
     justifyContent: "space-evenly",
+  },
+  nome: {
+    color: "#161925",
   },
   categoria: {
     height: 110,
@@ -81,7 +85,7 @@ export const styles = StyleSheet.create({
   },
   nomeCategoria: {
     paddingTop: 4,
-    // paddingBottom: 2,
+    color: "#161925",
     textAlignVertical: "bottom",
   },
 });
