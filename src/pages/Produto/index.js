@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import {Text,KeyboardAvoidingView,Image,View,TextInput, TouchableOpacity} from 'react-native';
+import { Text, KeyboardAvoidingView, Image, View, TextInput, TouchableOpacity } from 'react-native';
 import { styles } from './styles';
 
 import Constants from "expo-constants";
@@ -11,17 +11,17 @@ import { TextInputMask } from 'react-native-masked-text'
 export default class Produto extends Component {
 
   state = {
-    categoria:'',
-    nomeDoProduto:'',
-    preco:'',
-    qtd:'',
-    comentario:'',
+    categoria: '',
+    nomeDoProduto: '',
+    preco: '',
+    qtd: '',
+    comentario: '',
     image: null,
   };
 
-  render () {
+  render() {
     let { image } = this.state;
-    
+
     return (
       <View style={styles.background}>
         <View style={styles.container}>
@@ -36,34 +36,33 @@ export default class Produto extends Component {
               }
             />
           </TouchableOpacity>
-          <Picker
-            selectedValue={this.state.categoria}
-            style={styles.dropdown}
-            onValueChange={(itemValue, itemIndex) =>
-              this.setState({categoria: itemValue})
-            }>
-            <Picker.Item label="Banana" value="Banana" />
-            <Picker.Item label="Laranja" value="Laranja" />
-          </Picker>
-
+          <View style={styles.dropdown}>
+            <Picker
+              selectedValue={this.state.categoria}
+              onValueChange={(itemValue, itemIndex) =>
+                this.setState({ categoria: itemValue })
+              }>
+              <Picker.Item label="Banana" value="Banana" />
+              <Picker.Item label="Laranja" value="Laranja" />
+            </Picker>
+          </View>
           <TextInput style={styles.input}
-              placeholder="Nome do Produto (ex. Alface Americana)"
-              autoCorrect={true}
-              value={this.state.nomeDoProduto}
-              onChangeText={text => {this.setState({nomeDoProduto:text})}}
+            placeholder="Nome do Produto (ex. Alface Americana)"
+            autoCorrect={true}
+            value={this.state.nomeDoProduto}
+            onChangeText={text => { this.setState({ nomeDoProduto: text }) }}
           />
 
           <TextInput style={styles.comentario}
-              placeholder="Comentário"
-              autoCorrect={true}
-              value={this.state.comentario}
-              onChangeText={text => {this.setState({comentario:text})}}
+            placeholder="Comentário"
+            autoCorrect={true}
+            value={this.state.comentario}
+            onChangeText={text => { this.setState({ comentario: text }) }}
           />
 
           <View style={styles.qtd}>
             <TextInputMask style={styles.inputNum}
               type={'money'}
-              placeholder="Preço"
               options={{
                 precision: 2,
                 separator: ',',
@@ -71,23 +70,24 @@ export default class Produto extends Component {
                 unit: 'R$',
                 suffixUnit: ''
               }}
+              placeholder="Preço"
               value={this.state.preco}
-              onChangeText={text => {this.setState({preco: text})}}
+              onChangeText={text => { this.setState({ preco: text }) }}
             />
-            <TextInputMask
-              type={'custom'}
+            <TextInput
+              keyboardType={'numeric'}
               placeholder="Qtd"
-              options={{mask:'999'}}
+              maxLength={5}
               value={this.state.qtd}
-              onChangeText={text => {this.setState({qtd:text})}}
+              onChangeText={text => { this.setState({ qtd: text }) }}
               style={styles.inputqtd}
             />
           </View>
 
-          <View style={{alignItems: 'center'}}>
-          <TouchableOpacity style={styles.button}>
-            <Text style={styles.buttonText}> Cadastrar Produto</Text>
-          </TouchableOpacity>
+          <View style={{ alignItems: 'center' }}>
+            <TouchableOpacity style={styles.button}>
+              <Text style={styles.buttonText}> Cadastrar Produto</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
