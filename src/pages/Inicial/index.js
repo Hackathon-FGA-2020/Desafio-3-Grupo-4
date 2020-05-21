@@ -5,45 +5,15 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
-  onPress,
   StatusBar,
 } from "react-native";
 import { styles } from "./styles";
 import { FlatList } from "react-native-gesture-handler";
-
+import { getCollection } from "../../api";
 
 export default class Inicial extends Component {
   state = {
-    DATAcategorias: [
-      {
-        id: "0",
-        nome: "Alface",
-      },
-      {
-        id: "1",
-        nome: "Tomate",
-      },
-      {
-        id: "2",
-        nome: "Laranja",
-      },
-      {
-        id: "3",
-        nome: "Graviola",
-      },
-      {
-        id: "4",
-        nome: "Jabuticaba",
-      },
-      {
-        id: "5",
-        nome: "Pepino",
-      },
-      {
-        id: "6",
-        nome: "Cebola",
-      },
-    ],
+    DATAcategorias: null,
     DATAvendedores: [
       {
         id: "0",
@@ -78,8 +48,25 @@ export default class Inicial extends Component {
     ],
   };
 
+  setCategorias(data) {
+    let result = [];
+    data.forEach((item) =>
+      result.push({ id: item.id, title: item.data.title })
+    );
+    return result;
+  }
+
+  async componentDidMount() {
+    this.setState({
+      DATAcategorias: this.setCategorias(await getCollection("categories")),
+    });
+  }
   renderVendedor = ({ item }) => (
-    <TouchableOpacity onPress={() => { this.props.navigation.navigate("Login") }}>
+    <TouchableOpacity
+      onPress={() => {
+        this.props.navigation.navigate("Login");
+      }}
+    >
       <View style={styles.perfil}>
         <Image
           style={styles.fotoVendedor}
@@ -99,7 +86,7 @@ export default class Inicial extends Component {
           style={styles.fotoCategoria} //Mudar para foto da catetegoria
           source={require("./img/vendedor/perfil.png")}
         />
-        <Text style={styles.nomeCategoria}>{item.nome}</Text>
+        <Text style={styles.nomeCategoria}>{item.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -182,7 +169,6 @@ export default class Inicial extends Component {
           </View>
         </View>
       </View>
-
     );
   }
 }
