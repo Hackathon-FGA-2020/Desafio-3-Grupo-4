@@ -7,8 +7,10 @@ import {
   TouchableOpacity,
   StatusBar,
 } from "react-native";
-import { styles } from "./styles";
 import { FlatList } from "react-native-gesture-handler";
+
+import { styles } from "./styles";
+
 import { getCollection } from "../../api";
 
 export default class Inicial extends Component {
@@ -79,7 +81,12 @@ export default class Inicial extends Component {
 
   renderCategoria = ({ item }) => (
     <TouchableOpacity
-      onPress={() => this.props.navigation.navigate("Categoria")}
+      onPress={() =>
+        this.props.navigation.navigate("Categoria", {
+          categoryId: item.id,
+          categoryTitle: item.title,
+        })
+      }
     >
       <View style={styles.categoria}>
         <Image

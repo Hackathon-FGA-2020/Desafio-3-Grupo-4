@@ -5,6 +5,8 @@ import { Picker } from "@react-native-community/picker";
 
 import { styles } from "./styles";
 
+import { getCollectionWithQuery } from "../../api";
+
 const lorem =
   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
   "Etiam eget ante elementum, feugiat massa at, dignissim urna. " +
@@ -12,94 +14,45 @@ const lorem =
   "Fusce bibendum sem in velit finibus vestibulum. " +
   "Phasellus in quam nec mauris auctor finibus in nec ligula.";
 
+const seller = "Nivaldo Pereira";
+const local = "Samambaia";
+const state = "DF";
+
 export default class Categoria extends Component {
   state = {
     pickerSelect: null,
     sortedProducts: null,
-    products: [
-      {
-        id: "0",
-        title: "Cenoura",
-        local: "Brazlândia",
-        state: "DF",
-        price: 1.2,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "1",
-        title: "Cenoura Roxa",
-        local: "Ceilândia",
-        state: "DF",
-        price: 1.29,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "2",
-        title: "Cenoura Verde",
-        local: "Gama",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "3",
-        title: "Cenourinha",
-        local: "Samambaia Sul",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "4",
-        title: "Cenoura Verde",
-        local: "Ceilândia",
-        state: "DF",
-        price: 1.96,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "5",
-        title: "Cenoura Orgânica",
-        local: "Planaltina",
-        state: "DF",
-        price: 5.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "6",
-        title: "Outra cenoura",
-        local: "Gama",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "7",
-        title: "Outra cenoura",
-        local: "Luziânia",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-    ],
+    products: null,
   };
 
+  setProducts(data) {
+    let result = [];
+    data.forEach((item) => {
+      result.push({
+        id: item.id,
+        title: item.data.title,
+        price: item.data.price,
+        local: local,
+        state: state,
+        seller: seller,
+        description: lorem,
+      });
+    });
+    return result;
+  }
+
+  async componentDidMount() {
+    let query = {
+      field: "category",
+      operator: "==",
+      value: this.props.route.params.categoryId,
+    };
+    this.setState({
+      products: this.setProducts(
+        await getCollectionWithQuery("products", query)
+      ),
+    });
+  }
   renderProduct = ({ item }) => (
     <TouchableWithoutFeedback
       onPress={() =>
@@ -128,7 +81,9 @@ export default class Categoria extends Component {
           <View style={styles.categoryImage}>
             <Text> Image </Text>
           </View>
-          <Text style={styles.titleCategory}>Cenoura</Text>
+          <Text style={styles.titleCategory}>
+            {this.props.route.params.categoryTitle}
+          </Text>
           <View style={styles.pickerContainer}>
             <Picker
               selectedValue={this.state.pickerSelect}
