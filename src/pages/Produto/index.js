@@ -21,7 +21,7 @@ export default class Produto extends Component {
 
   render () {
     let { image } = this.state;
-
+    
     return (
       <View style={styles.background}>
         <View style={styles.container}>
@@ -36,8 +36,6 @@ export default class Produto extends Component {
               }
             />
           </TouchableOpacity>
-        </View>
-        <View style={styles.container}>
           <Picker
             selectedValue={this.state.categoria}
             style={styles.dropdown}

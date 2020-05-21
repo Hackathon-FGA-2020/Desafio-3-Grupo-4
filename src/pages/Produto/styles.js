@@ -38,6 +38,7 @@ import { StyleSheet } from 'react-native';
 
     inputNum: {
       backgroundColor: '#FFF',
+      height:'45%',
       width: '39%',
       marginBottom: 4,
       color: '#191919',
@@ -49,6 +50,7 @@ import { StyleSheet } from 'react-native';
 
     inputqtd: {
       backgroundColor: '#FFF',
+      height:'45%',
       width: '39%',
       marginBottom: 4,
       color: '#191919',
@@ -64,11 +66,11 @@ import { StyleSheet } from 'react-native';
 
     comentario:{
       backgroundColor: '#FFF',
-      height:'15%',
+      height:'10%',
       width:'80%',
       marginBottom: 4,
       color: '#191919',
-      fontSize: 25,
+      fontSize: 17,
       padding: 5,
       marginBottom: '5%',
     },
@@ -76,21 +78,23 @@ import { StyleSheet } from 'react-native';
     input:{
         backgroundColor: '#FFF',
         width:'80%',
+        height:'5%',
         marginBottom: 4,
         color: '#191919',
         fontSize: 17,
         padding: 5,
         marginBottom: '5%',
+        
     },
 
     dropdown:{
       backgroundColor: '#FFFFFF',
       width:'80%',
-      marginBottom: 4,
       color: '#191919',
-      fontSize: 15,
+      fontSize: 17,
       padding: 5,
       marginBottom: '5%',
+      marginTop:50,
     },
     text:{
       fontSize:15,
