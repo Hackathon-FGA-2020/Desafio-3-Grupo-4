@@ -7,6 +7,7 @@ import {
   TextInput,
   TouchableOpacity,
   ScrollView,
+  Alert,
 } from "react-native";
 import { TextInputMask } from "react-native-masked-text";
 import { styles } from "./styles";
@@ -180,7 +181,7 @@ export default class Cadastro extends Component {
               }}
             />
 
-            <TouchableOpacity style={styles.submitBtn} onPress={() => {}}>
+            <TouchableOpacity style={styles.submitBtn} onPress={() => { this.verificaFormulario() }}>
               <Text style={styles.submitText}>Concluir</Text>
             </TouchableOpacity>
           </View>
@@ -189,12 +190,12 @@ export default class Cadastro extends Component {
     );
   }
 
-  verificaFormulario(){
-    if (this.state.senha!==this.state.senhaRepetida){
+  verificaFormulario() {
+    if (this.state.novaSenha !== this.state.novaSenhaRepeat) {
       return Alert.alert("As senhas não são iguais, por favor, digite novamente");
     }
     const cepIsValid = this.cepField.isValid()
-    if (!cepIsValid){
+    if (!cepIsValid) {
       return Alert.alert("Digite um CEP válido");
     }
     return this.props.navigation.navigate("PerfilPrivado")

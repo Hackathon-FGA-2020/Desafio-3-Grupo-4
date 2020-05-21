@@ -10,7 +10,7 @@ import {
 import { styles } from "./styles";
 
 export default class ProdutosCadastrados extends Component {
-  
+
   state = {
     data: [
       { id: "1", title: "banana" },
@@ -33,7 +33,7 @@ export default class ProdutosCadastrados extends Component {
     console.log(item);
     Alert.alert("AVISO", "Você realmente deseja remover este produto ?", [
       { text: "Não" },
-      { text: "Sim", onPress: () => {this.deleteItemById(item.id),this.removerProduto()} },
+      { text: "Sim", onPress: () => { this.deleteItemById(item.id), this.removerProduto() } },
     ]);
   };
 
@@ -67,7 +67,7 @@ export default class ProdutosCadastrados extends Component {
         <TouchableOpacity
           style={styles.adicionarProduto}
           onPress={() => {
-            console.log("clicou pra add");
+            this.props.navigation.navigate("AdicionarProduto")
           }}
         >
           <View>

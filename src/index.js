@@ -16,6 +16,7 @@ import ProdutosCadastrados from "./pages/ProdutosCadastrados";
 import ComprasEfetuadas from "./pages/ComprasEfetuadas";
 import PedidoRecebido from "./pages/DetalhesCompra";
 import DetalhesPedidoFeito from "./pages/DetalhesPedidoFeito";
+import AdicionarProduto from "./pages/AdicionarProduto";
 
 const Stack = createStackNavigator();
 
@@ -43,6 +44,10 @@ export default function Routes() {
         <Stack.Screen
           name="DetalhesPedidoFeito"
           component={DetalhesPedidoFeito}
+        />
+        <Stack.Screen
+          name="AdicionarProduto"
+          component={AdicionarProduto}
         />
       </Stack.Navigator>
     </>

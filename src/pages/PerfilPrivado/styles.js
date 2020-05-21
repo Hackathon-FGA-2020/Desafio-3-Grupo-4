@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
 
-  background: 
+  background:
   {
     flex: 1,
     alignItems: 'center',
@@ -62,19 +62,21 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#161925',
     marginTop: '10%',
-    
+
   },
 
   nome:
   {
-    margin: 10,
+    marginVertical: 10,
     fontSize: 16,
-    color: "#CBF7ED"
+    color: "#CBF7ED",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   txtEditar:
   {
-    color:'#CBF7ED',
+    color: '#CBF7ED',
   },
 
   img:
@@ -87,18 +89,18 @@ export const styles = StyleSheet.create({
 
   esq:
   {
-    height:'100%',
-    flex:1,
+    height: '100%',
+    flex: 1,
     paddingTop: 15,
     alignItems: "center",
-    backgroundColor:'#23395B',
+    backgroundColor: '#23395B',
 
   },
 
   dir:
   {
-    flex:1,
-    backgroundColor:'#23395B',
+    flex: 1,
+    backgroundColor: '#23395B',
     height: '100%',
     alignItems: 'center',
     justifyContent: "space-evenly",
@@ -106,7 +108,7 @@ export const styles = StyleSheet.create({
 
   txtVendidos:
   {
-    flex:0,
+    flex: 0,
   },
 
   avaliacoes:
