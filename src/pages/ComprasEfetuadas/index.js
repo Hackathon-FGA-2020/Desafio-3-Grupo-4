@@ -119,14 +119,14 @@ export default class ComprasEfetuadas extends React.Component {
         </View>
         <View style={styles.containerLista}>
           <FlatList
-            data={this.state.value === "first" ? compras : pedidoFeito}
+            data={this.state.value == "first" ? compras : pedidoFeito}
             renderItem={({ item }) => (
               <TouchableOpacity onPress={() => {this.verificaMarcado(item)}}>
                 <View style={styles.item}>
                   <View style={styles.dados}>
                     <View style={styles.produtoComprador}>
                       <Text style={styles.texto}>Produto(s): {item.produtos}</Text>
-                      <Text style={styles.texto}>Comprador(s): {item.comprador}</Text>
+                    <Text style={styles.texto}>{this.state.value === 'first' ? 'Comprador(a):' : 'Vendedor(a):'} {this.state.value === 'first' ? item.comprador : item.vendedor}</Text>
                     </View>
                     <View style={styles.campoPreco}>
                       <Text style={styles.texto}>Preço: R$ {item.precoTotal}</Text>
@@ -150,8 +150,4 @@ export default class ComprasEfetuadas extends React.Component {
       ? this.props.navigation.navigate("DetalhesCompra", { compra: item })
       : this.props.navigation.navigate("DetalhesPedidoFeito", { compra: item });
   }
-
-  // Produto(s): {item.produtos}             Preço: R$ {item.precoTotal}{"\n"}{"\n"}
-  //                   {this.state.value === 'first' ? 'Comprador(a):' : 'Vendedor(a):'} {this.state.value === 'first' ? item.comprador : item.vendedor}{"\n"}{"\n"}                              {item.dataDaCompra}
-  //                   <Text style = {{color: 'red'}}>{"\t"}{"\t"}{"\t"}{"\t"}{item.situacao}</Text>
 }
