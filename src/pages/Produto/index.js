@@ -1,12 +1,26 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Modal } from "react-native";
+import { Text, View, TouchableOpacity, Modal, TextInput } from "react-native";
 
 import { styles } from "./styles";
 
 export default class Produto extends Component {
   state = {
     showPopUp: false,
+    produto: [
+      { qtd: 1 },
+    ],
+
   };
+
+  calcularTotalDoCarrinho = () =>
+    this.state.DATAcarrinho.reduce(
+      (total, valor) => total + valor.preco,
+      0
+    ).toFixed(2);
+
+  renderQtd() {
+
+  }
 
   render() {
     const { product } = this.props.route.params;
@@ -34,11 +48,20 @@ export default class Produto extends Component {
                 <Text style={styles.priceProduct}>
                   R$ {product.price.toFixed(2)}
                 </Text>
+                <TextInput
+                  keyboardType={'numeric'}
+                  placeholder="Qtd desejada"
+                  maxLength={5}
+                  value={this.state.qtd}
+                  onChangeText={text => { this.setState({ qtd: text }) }}
+                  style={styles.inputqtd}
+                />
               </View>
             </View>
-            <View style={styles.descriptionContainer}>
-              <Text style={styles.descriptionText}>{product.description}</Text>
-            </View>
+
+          </View>
+          <View style={styles.descriptionContainer}>
+            <Text style={styles.descriptionText}>{product.description}</Text>
           </View>
         </View>
         <TouchableOpacity

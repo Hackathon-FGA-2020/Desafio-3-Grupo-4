@@ -51,7 +51,7 @@ export const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: "#CBF7ED",
     borderWidth: 3,
-    borderColor: "#3d8f87",
+    borderColor: "#191919",
   },
   descriptionText: {
     textAlign: "justify",
@@ -100,4 +100,16 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     color: "#CBF7ED",
   },
+  inputqtd: {
+    textAlign: "center",
+    backgroundColor: '#FFF',
+    marginBottom: 4,
+    color: '#191919',
+    fontSize: 17,
+    padding: 8,
+    marginBottom: '5%',
+    borderWidth: 1.5,
+    borderRadius: 10,
+  },
+
 });
