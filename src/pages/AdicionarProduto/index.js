@@ -7,6 +7,7 @@ import * as Permissions from "expo-permissions";
 import * as ImagePicker from "expo-image-picker";
 import { Picker } from "@react-native-community/picker";
 import { TextInputMask } from 'react-native-masked-text'
+import { addItem } from "../../api";
 
 export default class AdicionarProduto extends Component {
 
@@ -65,7 +66,7 @@ export default class AdicionarProduto extends Component {
               type={'money'}
               options={{
                 precision: 2,
-                separator: ',',
+                separator: '.',
                 delimiter: '.',
                 unit: 'R$',
                 suffixUnit: ''
@@ -85,13 +86,27 @@ export default class AdicionarProduto extends Component {
           </View>
 
           <View style={{ alignItems: 'center' }}>
-            <TouchableOpacity style={styles.button}>
+            <TouchableOpacity 
+            style={styles.button}
+            onPress={() => {this.props.navigation.navigate("ProdutosCadastrados"),  this.addProduct()}}>
               <Text style={styles.buttonText}> Cadastrar Produto</Text>
             </TouchableOpacity>
           </View>
         </View>
       </View>
     );
+  }
+
+  addProduct(){
+    var obj = {};
+    obj.categoryId = null
+    obj.description = this.state.comentario 
+    obj.price = parseFloat(this.state.preco.substring(2))
+    obj.title = this.state.nomeDoProduto
+    obj.sellerId = null
+    obj.img = this.state.image
+    
+    addItem('products', obj)
   }
 
   componentDidMount() {

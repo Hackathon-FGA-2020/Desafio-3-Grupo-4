@@ -15,6 +15,8 @@ import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
 import * as Permissions from "expo-permissions";
 import { not } from "react-native-reanimated";
+import { getCollection } from "../../api";
+import { addItem } from "../../api";
 
 export default class Cadastro extends Component {
   state = {
@@ -210,7 +212,7 @@ export default class Cadastro extends Component {
 
             <TouchableOpacity
               style={styles.submitBtn}
-              onPress={() => {this.verificaFormulario()}}
+              onPress={() => {this.verificaFormulario(),  this.addUser()}}
             >
               <Text style={styles.submitText} >Cadastrar</Text>
             </TouchableOpacity>
@@ -237,6 +239,24 @@ export default class Cadastro extends Component {
       return Alert.alert("Digite um CEP válido");
     }
     return this.props.navigation.navigate("Inicial")
+  }
+
+  addUser(){
+    var obj = {};
+    obj.name = this.state.usuario
+    obj.password = this.state.senha
+    obj.email = this.state.email
+    obj.cpf = this.state.cpf
+    obj.phone = this.state.phoneBR
+    obj.zipcode = this.state.zipCode
+    obj.address = this.state.endereco
+    obj.number = this.state.num
+    obj.complement = this.state.complemento
+    obj.neighborhood = this.state.bairro
+    obj.city = this.state.cidade
+    obj.img = this.state.image
+    
+    addItem('users', obj)
   }
 
   componentDidMount() {

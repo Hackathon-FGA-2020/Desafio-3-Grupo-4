@@ -60,4 +60,9 @@ async function getCollectionWithQuery(collection, query) {
   return list;
 }
 
-export { getCollection, getDocument, getCollectionWithQuery };
+function addItem(collection, obj){
+  checkInitialized();
+  FirestoreDB.collection(collection).add(obj);
+}
+
+export { getCollection, getDocument, getCollectionWithQuery, addItem };
