@@ -35,7 +35,7 @@ export default class Busca extends Component {
       <View style={styles.objeto}>
         <Image
           style={styles.fotoObjeto} //Mudar para foto da catetegoria
-          source={require("./img/vendedor/perfil.png")}
+          source={item.foto}
         />
         <Text style={styles.nomeObjeto}>{item.nome}</Text>
       </View>
