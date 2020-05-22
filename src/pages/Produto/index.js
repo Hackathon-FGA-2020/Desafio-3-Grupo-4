@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { Text, View, TouchableOpacity, Modal, TextInput } from "react-native";
+import { connect } from "react-redux";
 
 import { styles } from "./styles";
 
 import { getDocument } from "../../api";
 
-export default class Produto extends Component {
+class Produto extends Component {
   state = {
     showPopUp: false,
     product: null,
@@ -84,7 +85,10 @@ export default class Produto extends Component {
         <TouchableOpacity
           style={styles.buttonBag}
           activeOpacity={0.6}
-          onPress={() => this.setState({ showPopUp: true })}
+          onPress={() => {
+            this.setState({ showPopUp: true });
+            this.props.addCart(product.id);
+          }}
         >
           <Text style={{ color: "#CBF7ED" }}>Adicionar à cesta</Text>
         </TouchableOpacity>
@@ -129,3 +133,16 @@ export default class Produto extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { cart: state.cart };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addCart: (id) => dispatch({ type: "ADD_CART", data: id }),
+    removeCart: (id) => dispatch({ type: "REMOVE_CART", data: id }),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Produto);

@@ -114,11 +114,7 @@ export default class Inicial extends Component {
 
           <View style={styles.carrinhoBusca}>
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("Carrinho", {
-                  ProdutosCarrinho: this.state.ProdutosCarrinho,
-                })
-              }
+              onPress={() => this.props.navigation.navigate("Carrinho")}
             >
               <Image
                 style={styles.botaoCarrinho}

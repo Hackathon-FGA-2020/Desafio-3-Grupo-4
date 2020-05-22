@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import { Text, View, StatusBar, Button } from "react-native";
-import { styles } from "./styles";
+import { Text, View, StatusBar, Image, Alert } from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import { connect } from "react-redux";
 
-export default class Carrinho extends Component {
+import { styles } from "./styles";
+
+class Carrinho extends Component {
   state = {
     DATAcarrinho: [
       {
@@ -51,14 +53,41 @@ export default class Carrinho extends Component {
     ],
   };
 
+  button = (item) => {
+    console.log(item);
+    Alert.alert("AVISO", "Você realmente deseja remover este produto ?", [
+      { text: "Não" },
+      {
+        text: "Sim",
+        onPress: () => {
+          this.removerProduto(item.id);
+        },
+      },
+    ]);
+  };
+
+  removerProduto = (id) => {
+    this.props.removeCart(id);
+    Alert.alert("Produto removido!");
+  };
+
   renderLista = ({ item }) => (
     <View style={styles.informacoesDoProduto}>
       <View style={styles.produto}>
         <Text style={styles.nomeProduto}>{item.nome}</Text>
+        <Text style={styles.nomeVendedor}>Qtd: QTD</Text>
         <Text style={styles.nomeVendedor}>{item.proprietario}</Text>
       </View>
       <View style={styles.valor}>
         <Text style={styles.preco}>R$ {item.preco.toFixed(2)}</Text>
+      </View>
+      <View style={styles.campoRemover}>
+        <TouchableOpacity onPress={() => this.button(item)}>
+          <Image
+            style={styles.fotoBotaoRemover}
+            source={require("./img/sinal-menos.png")}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -111,3 +140,16 @@ export default class Carrinho extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { cart: state.cart };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addCart: (id) => dispatch({ type: "ADD_CART", data: id }),
+    removeCart: (id) => dispatch({ type: "REMOVE_CART", data: id }),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);
