@@ -53,7 +53,7 @@ export default class Inicial extends Component {
   setCategorias(data) {
     let result = [];
     data.forEach((item) =>
-      result.push({ id: item.id, title: item.data.title })
+      result.push({ id: item.id, title: item.data.title, foto: item.data.img })
     );
     return result;
   }
@@ -78,13 +78,11 @@ export default class Inicial extends Component {
       </View>
     </TouchableOpacity>
   );
-
   renderCategoria = ({ item }) => (
     <TouchableOpacity
       onPress={() =>
         this.props.navigation.navigate("Categoria", {
           categoryId: item.id,
-          categoryTitle: item.title,
         })
       }
     >
