@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, StatusBar, Button } from "react-native";
+import { Text, View, StatusBar, Image, Alert } from "react-native";
 import { styles } from "./styles";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 
@@ -51,14 +51,35 @@ export default class Carrinho extends Component {
     ],
   };
 
+  button = (item) => {
+    console.log(item);
+    Alert.alert("AVISO", "Você realmente deseja remover este produto ?", [
+      { text: "Não" },
+      { text: "Sim", onPress: () => {this.removerProduto() } },
+    ]);
+  };
+
+  removerProduto = () => {
+    Alert.alert("Produto removido!");
+  };
+
   renderLista = ({ item }) => (
     <View style={styles.informacoesDoProduto}>
       <View style={styles.produto}>
         <Text style={styles.nomeProduto}>{item.nome}</Text>
+        <Text style={styles.nomeVendedor}>Qtd: QTD</Text>
         <Text style={styles.nomeVendedor}>{item.proprietario}</Text>
       </View>
       <View style={styles.valor}>
         <Text style={styles.preco}>R$ {item.preco.toFixed(2)}</Text>
+      </View>
+      <View style={styles.campoRemover}>
+      <TouchableOpacity onPress={() => this.button(item)}>
+          <Image
+            style={styles.fotoBotaoRemover}
+            source={require("./img/sinal-menos.png")}
+          />
+        </TouchableOpacity>
       </View>
     </View>
   );
