@@ -1,14 +1,16 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Modal } from "react-native";
+import { Text, View, TouchableOpacity, Modal, TextInput } from "react-native";
+import { connect } from "react-redux";
 
 import { styles } from "./styles";
 
 import { getDocument } from "../../api";
 
-export default class Produto extends Component {
+class Produto extends Component {
   state = {
     showPopUp: false,
     product: null,
+    quantity: 0,
   };
 
   async componentDidMount() {
@@ -32,7 +34,7 @@ export default class Produto extends Component {
   }
 
   render() {
-    const { product } = this.state;
+    const { quantity, product } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.productContainer}>
@@ -61,6 +63,16 @@ export default class Produto extends Component {
                 <Text style={styles.priceProduct}>
                   {product ? "R$" + product.price.toFixed(2) : null}
                 </Text>
+                <TextInput
+                  keyboardType={"numeric"}
+                  placeholder="Qtd desejada"
+                  maxLength={5}
+                  value={quantity}
+                  onChangeText={(text) => {
+                    this.setState({ quantity: text });
+                  }}
+                  style={styles.inputqtd}
+                />
               </View>
             </View>
             <View style={styles.descriptionContainer}>
@@ -73,7 +85,10 @@ export default class Produto extends Component {
         <TouchableOpacity
           style={styles.buttonBag}
           activeOpacity={0.6}
-          onPress={() => this.setState({ showPopUp: true })}
+          onPress={() => {
+            this.setState({ showPopUp: true });
+            this.props.addCart(product.id);
+          }}
         >
           <Text style={{ color: "#CBF7ED" }}>Adicionar à cesta</Text>
         </TouchableOpacity>
@@ -118,3 +133,16 @@ export default class Produto extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { cart: state.cart };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addCart: (id) => dispatch({ type: "ADD_CART", data: id }),
+    removeCart: (id) => dispatch({ type: "REMOVE_CART", data: id }),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Produto);

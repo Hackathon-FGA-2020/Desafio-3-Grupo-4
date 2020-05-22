@@ -89,7 +89,7 @@ export default class Inicial extends Component {
       <View style={styles.categoria}>
         <Image
           style={styles.fotoCategoria} //Mudar para foto da catetegoria
-          source={require("./img/vendedor/perfil.png")}
+          source={item.foto}
         />
         <Text style={styles.nomeCategoria}>{item.title}</Text>
       </View>
@@ -114,11 +114,7 @@ export default class Inicial extends Component {
 
           <View style={styles.carrinhoBusca}>
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("Carrinho", {
-                  ProdutosCarrinho: this.state.ProdutosCarrinho,
-                })
-              }
+              onPress={() => this.props.navigation.navigate("Carrinho")}
             >
               <Image
                 style={styles.botaoCarrinho}

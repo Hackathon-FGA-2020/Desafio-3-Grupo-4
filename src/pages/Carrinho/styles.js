@@ -9,7 +9,6 @@ export const styles = StyleSheet.create({
     },
     tituloSituacao: {
         flex: 1,
-        // backgroundColor: "green",
     },
     titulo: {
         padding: 20,
@@ -18,14 +17,15 @@ export const styles = StyleSheet.create({
     },
     produtosNoCarrinho: {
         flex: 5,
-        alignItems: "center",
+        // marginRight: 10,
     },
     informacoesDoProduto: {
         width:350,
         height:100,
         backgroundColor: "white",
         borderRadius: 20,
-        margin: 10,
+        marginHorizontal: 5,
+        marginVertical: 10,
         justifyContent: "space-around",
         flexDirection: "row",
     },
@@ -50,6 +50,15 @@ export const styles = StyleSheet.create({
     preco: {
         fontSize: 20,
         color: "#293845",
+    },
+    campoRemover: {
+        // flex:0.1,
+        alignItems: "center", 
+        justifyContent: "center", 
+    },
+    fotoBotaoRemover: {
+        width: 30,
+        height: 30,
     },
     situacaoETotal: {
         flex: 2,

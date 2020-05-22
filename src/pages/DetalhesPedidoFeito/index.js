@@ -73,7 +73,7 @@ export default class DetalhesPedidoFeito extends React.Component {
                 <Text style={styles.texto}>Vendedor(a): {item.vendedor}</Text>
                 <Text style = {styles.texto}>Produto(s):</Text>
                 <Text style = {styles.produtos}>- {item.produtos}(xqtd)....... R$ {item.precoTotal}</Text>
-                <Text style={styles.texto}>Preço total: {item.precoTotal}</Text>
+                <Text style={styles.texto}>Preço total: R$ {item.precoTotal}</Text>
               </View>
             )}
           />
