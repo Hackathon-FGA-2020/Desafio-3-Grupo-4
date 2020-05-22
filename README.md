@@ -73,7 +73,7 @@ Tela de cadastrar produto | Tela dos pedidos feitos | Tela dos pedidos recebidos
 
 - [x] Cadastro sendo enviado para o banco de dados
 - [x] Cadastro do produto sendo enviado para o banco de dados
-- [x] Aplicativo recebendo dados do banco, nas telas:
+- [x] Aplicativo recebendo dados do Firebase, nas telas:
     - tela inicial
     - tela da categoria
     - tela do produto
