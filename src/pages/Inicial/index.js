@@ -18,30 +18,37 @@ export default class Inicial extends Component {
       {
         id: "0",
         nome: "Alface",
+        foto: require("./img/icones/alface.png")
       },
       {
         id: "1",
-        nome: "Tomate",
+        nome: "Banana",
+        foto: require("./img/icones/cachoBanana.png")
       },
       {
         id: "2",
         nome: "Laranja",
+        foto: require("./img/icones/laranja.png")
       },
       {
         id: "3",
-        nome: "Graviola",
+        nome: "Milho",
+        foto: require("./img/icones/milho.png")
       },
       {
         id: "4",
-        nome: "Jabuticaba",
+        nome: "Brócolis",
+        foto: require("./img/icones/brocolis.png")
       },
       {
         id: "5",
-        nome: "Pepino",
+        nome: "Uvas",
+        foto: require("./img/icones/uva.png")
       },
       {
         id: "6",
         nome: "Cebola",
+        foto: require("./img/icones/cebola.png")
       },
     ],
     DATAvendedores: [
@@ -96,8 +103,8 @@ export default class Inicial extends Component {
     >
       <View style={styles.categoria}>
         <Image
-          style={styles.fotoCategoria} //Mudar para foto da catetegoria
-          source={require("./img/vendedor/perfil.png")}
+          style={styles.fotoCategoria}//Mudar para foto da catetegoria
+          source = {item.foto} 
         />
         <Text style={styles.nomeCategoria}>{item.nome}</Text>
       </View>
