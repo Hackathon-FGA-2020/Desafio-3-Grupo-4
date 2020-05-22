@@ -5,105 +5,57 @@ import { Picker } from "@react-native-community/picker";
 
 import { styles } from "./styles";
 
-const lorem =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. " +
-  "Etiam eget ante elementum, feugiat massa at, dignissim urna. " +
-  "Sed suscipit nibh ac nisl molestie facilisis. " +
-  "Fusce bibendum sem in velit finibus vestibulum. " +
-  "Phasellus in quam nec mauris auctor finibus in nec ligula.";
+import { getCollectionWithQuery, getDocument } from "../../api";
 
 export default class Categoria extends Component {
   state = {
+    categoryTitle: null,
     pickerSelect: null,
     sortedProducts: null,
-    products: [
-      {
-        id: "0",
-        title: "Cenoura",
-        local: "Brazlândia",
-        state: "DF",
-        price: 1.2,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "1",
-        title: "Cenoura Roxa",
-        local: "Ceilândia",
-        state: "DF",
-        price: 1.29,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "2",
-        title: "Cenoura Verde",
-        local: "Gama",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "3",
-        title: "Cenourinha",
-        local: "Samambaia Sul",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "4",
-        title: "Cenoura Verde",
-        local: "Ceilândia",
-        state: "DF",
-        price: 1.96,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "5",
-        title: "Cenoura Orgânica",
-        local: "Planaltina",
-        state: "DF",
-        price: 5.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "6",
-        title: "Outra cenoura",
-        local: "Gama",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-      {
-        id: "7",
-        title: "Outra cenoura",
-        local: "Luziânia",
-        state: "DF",
-        price: 3.0,
-        description: lorem,
-        img: null,
-        seller: "Nivaldo Pereira",
-      },
-    ],
+    products: null,
   };
+
+  async componentDidMount() {
+    this.setState({
+      products: await this.getProducts(),
+      categoryTitle: await this.getCategoryTitle(),
+    });
+  }
+
+  async getCategoryTitle() {
+    let category = await getDocument(
+      "categories",
+      this.props.route.params.categoryId
+    );
+    return category.data.title;
+  }
+
+  async getProducts() {
+    let list = [];
+    let query = {
+      field: "categoryId",
+      operator: "==",
+      value: this.props.route.params.categoryId,
+    };
+    let products = await getCollectionWithQuery("products", query);
+    for (const item of products) {
+      let obj = {};
+      obj.id = item.id;
+      obj.title = item.data.title;
+      obj.price = item.data.price;
+      obj.img = item.data.img;
+      let user = await getDocument("users", item.data.sellerId);
+      obj.city = user.data.city;
+      obj.state = user.data.state;
+      list.push(obj);
+    }
+    return list;
+  }
 
   renderProduct = ({ item }) => (
     <TouchableWithoutFeedback
       onPress={() =>
-        this.props.navigation.navigate("Produto", { product: item })
+        this.props.navigation.navigate("Produto", { productId: item.id })
       }
     >
       <View style={styles.productContainer}>
@@ -113,7 +65,7 @@ export default class Categoria extends Component {
         <View style={styles.productTextBox}>
           <Text style={styles.titleProduct}>{item.title}</Text>
           <Text style={styles.localProduct}>
-            {item.local} - {item.state}
+            {item.city} - {item.state}
           </Text>
           <Text style={styles.priceProduct}>R$ {item.price.toFixed(2)}</Text>
         </View>
@@ -128,7 +80,7 @@ export default class Categoria extends Component {
           <View style={styles.categoryImage}>
             <Text> Image </Text>
           </View>
-          <Text style={styles.titleCategory}>Cenoura</Text>
+          <Text style={styles.titleCategory}>{this.state.categoryTitle}</Text>
           <View style={styles.pickerContainer}>
             <Picker
               selectedValue={this.state.pickerSelect}

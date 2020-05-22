@@ -1,5 +1,5 @@
-import React from "react";
-import { StatusBar } from "react-native";
+import React, { Component } from "react";
+import { StatusBar, YellowBox } from "react-native";
 import { createStackNavigator } from "@react-navigation/stack";
 
 import Inicial from "./pages/Inicial";
@@ -20,36 +20,39 @@ import AdicionarProduto from "./pages/AdicionarProduto";
 
 const Stack = createStackNavigator();
 
-export default function Routes() {
-  return (
-    <>
-      <StatusBar hidden />
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Inicial" component={Inicial} />
-        <Stack.Screen name="Categoria" component={Categoria} />
-        <Stack.Screen name="Produto" component={Produto} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="PerfilPrivado" component={PerfilPrivado} />
-        <Stack.Screen name="PerfilPublico" component={PerfilPublico} />
-        <Stack.Screen name="EditarPerfil" component={EditarPerfil} />
-        <Stack.Screen name="Cadastro" component={Cadastro} />
-        <Stack.Screen name="Busca" component={Busca} />
-        <Stack.Screen name="Carrinho" component={Carrinho} />
-        <Stack.Screen
-          name="ProdutosCadastrados"
-          component={ProdutosCadastrados}
-        />
-        <Stack.Screen name="ComprasEfetuadas" component={ComprasEfetuadas} />
-        <Stack.Screen name="DetalhesCompra" component={PedidoRecebido} />
-        <Stack.Screen
-          name="DetalhesPedidoFeito"
-          component={DetalhesPedidoFeito}
-        />
-        <Stack.Screen
-          name="AdicionarProduto"
-          component={AdicionarProduto}
-        />
-      </Stack.Navigator>
-    </>
-  );
+export default class Routes extends Component {
+  constructor() {
+    super();
+    YellowBox.ignoreWarnings(["Setting a timer"]);
+  }
+  render() {
+    return (
+      <>
+        <StatusBar hidden />
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="Inicial" component={Inicial} />
+          <Stack.Screen name="Categoria" component={Categoria} />
+          <Stack.Screen name="Produto" component={Produto} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="PerfilPrivado" component={PerfilPrivado} />
+          <Stack.Screen name="PerfilPublico" component={PerfilPublico} />
+          <Stack.Screen name="EditarPerfil" component={EditarPerfil} />
+          <Stack.Screen name="Cadastro" component={Cadastro} />
+          <Stack.Screen name="Busca" component={Busca} />
+          <Stack.Screen name="Carrinho" component={Carrinho} />
+          <Stack.Screen
+            name="ProdutosCadastrados"
+            component={ProdutosCadastrados}
+          />
+          <Stack.Screen name="ComprasEfetuadas" component={ComprasEfetuadas} />
+          <Stack.Screen name="DetalhesCompra" component={PedidoRecebido} />
+          <Stack.Screen
+            name="DetalhesPedidoFeito"
+            component={DetalhesPedidoFeito}
+          />
+          <Stack.Screen name="AdicionarProduto" component={AdicionarProduto} />
+        </Stack.Navigator>
+      </>
+    );
+  }
 }

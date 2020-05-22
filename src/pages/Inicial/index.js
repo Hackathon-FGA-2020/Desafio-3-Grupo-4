@@ -5,52 +5,17 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
-  onPress,
   StatusBar,
 } from "react-native";
-import { styles } from "./styles";
 import { FlatList } from "react-native-gesture-handler";
 
+import { styles } from "./styles";
+
+import { getCollection } from "../../api";
 
 export default class Inicial extends Component {
   state = {
-    DATAcategorias: [
-      {
-        id: "0",
-        nome: "Alface",
-        foto: require("./img/icones/alface.png")
-      },
-      {
-        id: "1",
-        nome: "Banana",
-        foto: require("./img/icones/cachoBanana.png")
-      },
-      {
-        id: "2",
-        nome: "Laranja",
-        foto: require("./img/icones/laranja.png")
-      },
-      {
-        id: "3",
-        nome: "Milho",
-        foto: require("./img/icones/milho.png")
-      },
-      {
-        id: "4",
-        nome: "Brócolis",
-        foto: require("./img/icones/brocolis.png")
-      },
-      {
-        id: "5",
-        nome: "Uvas",
-        foto: require("./img/icones/uva.png")
-      },
-      {
-        id: "6",
-        nome: "Cebola",
-        foto: require("./img/icones/cebola.png")
-      },
-    ],
+    DATAcategorias: null,
     DATAvendedores: [
       {
         id: "0",
@@ -85,8 +50,25 @@ export default class Inicial extends Component {
     ],
   };
 
+  setCategorias(data) {
+    let result = [];
+    data.forEach((item) =>
+      result.push({ id: item.id, title: item.data.title, foto: item.data.img })
+    );
+    return result;
+  }
+
+  async componentDidMount() {
+    this.setState({
+      DATAcategorias: this.setCategorias(await getCollection("categories")),
+    });
+  }
   renderVendedor = ({ item }) => (
-    <TouchableOpacity onPress={() => { this.props.navigation.navigate("Login") }}>
+    <TouchableOpacity
+      onPress={() => {
+        this.props.navigation.navigate("Login");
+      }}
+    >
       <View style={styles.perfil}>
         <Image
           style={styles.fotoVendedor}
@@ -96,17 +78,20 @@ export default class Inicial extends Component {
       </View>
     </TouchableOpacity>
   );
-
   renderCategoria = ({ item }) => (
     <TouchableOpacity
-      onPress={() => this.props.navigation.navigate("Categoria")}
+      onPress={() =>
+        this.props.navigation.navigate("Categoria", {
+          categoryId: item.id,
+        })
+      }
     >
       <View style={styles.categoria}>
         <Image
-          style={styles.fotoCategoria}//Mudar para foto da catetegoria
-          source = {item.foto} 
+          style={styles.fotoCategoria} //Mudar para foto da catetegoria
+          source={item.foto}
         />
-        <Text style={styles.nomeCategoria}>{item.nome}</Text>
+        <Text style={styles.nomeCategoria}>{item.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -189,7 +174,6 @@ export default class Inicial extends Component {
           </View>
         </View>
       </View>
-
     );
   }
 }
