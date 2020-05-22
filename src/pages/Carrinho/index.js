@@ -5,53 +5,39 @@ import { connect } from "react-redux";
 
 import { styles } from "./styles";
 
+import { getDocument } from "../../api";
+
 class Carrinho extends Component {
   state = {
-    DATAcarrinho: [
-      {
-        id: "0",
-        nome: "Alface",
-        proprietario: "Pedro",
-        preco: 1.9,
-      },
-      {
-        id: "1",
-        nome: "Tomate",
-        proprietario: "Jorge",
-        preco: 1.9,
-      },
-      {
-        id: "2",
-        nome: "Laranja",
-        proprietario: "Paulo",
-        preco: 1.9,
-      },
-      {
-        id: "3",
-        nome: "Graviola",
-        proprietario: "Lucas",
-        preco: 1.9,
-      },
-      {
-        id: "4",
-        nome: "Jabuticaba",
-        proprietario: "Judas",
-        preco: 1.9,
-      },
-      {
-        id: "5",
-        nome: "Pepino",
-        proprietario: "João",
-        preco: 1.9,
-      },
-      {
-        id: "6",
-        nome: "Cebola",
-        proprietario: "Tiago",
-        preco: 1.9,
-      },
-    ],
+    DATAcarrinho: [],
+    // DATAcarrinho:
+    //   {
+    //     id: "0",
+    //     nome: "Alface",
+    //     proprietario: "Pedro",
+    //     preco: 1.9,
+    //   },
   };
+
+  async componentDidMount() {
+    this.setState({ DATAcarrinho: await this.getProdutcts() });
+  }
+
+  async getProdutcts() {
+    let list = [];
+    const { cart } = this.props;
+    for (const item of cart) {
+      let obj = {};
+      let product = await getDocument("products", item);
+      obj.id = product.id;
+      obj.nome = product.data.title;
+      obj.preco = product.data.price;
+      let seller = await getDocument("users", product.data.sellerId);
+      obj.proprietario = seller.data.name;
+      list.push(obj);
+    }
+    return list;
+  }
 
   button = (item) => {
     console.log(item);

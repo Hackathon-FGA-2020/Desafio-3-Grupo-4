@@ -23,6 +23,7 @@ class Produto extends Component {
       "products",
       this.props.route.params.productId
     );
+    obj.id = product.id;
     obj.title = product.data.title;
     obj.price = product.data.price;
     obj.description = product.data.description;
@@ -35,7 +36,6 @@ class Produto extends Component {
 
   render() {
     const { quantity, product } = this.state;
-    console.log(quantity);
     return (
       <View style={styles.container}>
         <View style={styles.productContainer}>
