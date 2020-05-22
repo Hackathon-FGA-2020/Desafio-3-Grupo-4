@@ -5,12 +5,11 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
-  onPress,
   StatusBar,
 } from "react-native";
-import { styles } from "./styles";
 import { FlatList } from "react-native-gesture-handler";
 
+import { styles } from "./styles";
 
 export default class Inicial extends Component {
   state = {
@@ -79,7 +78,11 @@ export default class Inicial extends Component {
   };
 
   renderVendedor = ({ item }) => (
-    <TouchableOpacity onPress={() => { this.props.navigation.navigate("Login") }}>
+    <TouchableOpacity
+      onPress={() => {
+        this.props.navigation.navigate("Login");
+      }}
+    >
       <View style={styles.perfil}>
         <Image
           style={styles.fotoVendedor}
@@ -122,11 +125,7 @@ export default class Inicial extends Component {
 
           <View style={styles.carrinhoBusca}>
             <TouchableOpacity
-              onPress={() =>
-                this.props.navigation.navigate("Carrinho", {
-                  ProdutosCarrinho: this.state.ProdutosCarrinho,
-                })
-              }
+              onPress={() => this.props.navigation.navigate("Carrinho")}
             >
               <Image
                 style={styles.botaoCarrinho}
@@ -182,7 +181,6 @@ export default class Inicial extends Component {
           </View>
         </View>
       </View>
-
     );
   }
 }

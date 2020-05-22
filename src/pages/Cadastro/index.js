@@ -9,7 +9,7 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
-import { TextInputMask, } from "react-native-masked-text";
+import { TextInputMask } from "react-native-masked-text";
 import { styles } from "./styles";
 import * as ImagePicker from "expo-image-picker";
 import Constants from "expo-constants";
@@ -113,7 +113,7 @@ export default class Cadastro extends Component {
                   cpf: text,
                 });
               }}
-              ref={(ref) => this.cpfField = ref}
+              ref={(ref) => (this.cpfField = ref)}
             />
 
             <TextInputMask
@@ -137,7 +137,7 @@ export default class Cadastro extends Component {
               style={styles.input}
               placeholder="CEP"
               type={"zip-code"}
-              ref={(ref) => this.cepField = ref}
+              ref={(ref) => (this.cepField = ref)}
               value={this.state.zipCode}
               onChangeText={(text) => {
                 this.setState({
@@ -160,7 +160,7 @@ export default class Cadastro extends Component {
             <View style={styles.numeroComplemento}>
               <TextInput
                 style={styles.inputNum}
-                keyboardType='numeric'
+                keyboardType="numeric"
                 placeholder="N°"
                 autoCorrect={false}
                 value={this.state.num}
@@ -210,9 +210,11 @@ export default class Cadastro extends Component {
 
             <TouchableOpacity
               style={styles.submitBtn}
-              onPress={() => {this.verificaFormulario()}}
+              onPress={() => {
+                this.verificaFormulario();
+              }}
             >
-              <Text style={styles.submitText} >Cadastrar</Text>
+              <Text style={styles.submitText}>Cadastrar</Text>
             </TouchableOpacity>
           </View>
         </KeyboardAvoidingView>
@@ -220,23 +222,25 @@ export default class Cadastro extends Component {
     );
   }
 
-  verificaFormulario(){
-    if (this.state.senha!==this.state.senhaRepetida){
-      return Alert.alert("As senhas não são iguais, por favor, digite novamente");
+  verificaFormulario() {
+    if (this.state.senha !== this.state.senhaRepetida) {
+      return Alert.alert(
+        "As senhas não são iguais, por favor, digite novamente"
+      );
     }
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (!re.test(String(this.state.email).toLowerCase())) {
       return Alert.alert("Digite um email válido");
     }
-    const cpfIsValid = this.cpfField.isValid()
-    if (!cpfIsValid){
+    const cpfIsValid = this.cpfField.isValid();
+    if (!cpfIsValid) {
       return Alert.alert("Digite um CPF válido");
     }
-    const cepIsValid = this.cepField.isValid()
-    if (!cepIsValid){
+    const cepIsValid = this.cepField.isValid();
+    if (!cepIsValid) {
       return Alert.alert("Digite um CEP válido");
     }
-    return this.props.navigation.navigate("Inicial")
+    return this.props.navigation.navigate("Inicial");
   }
 
   componentDidMount() {
@@ -247,7 +251,9 @@ export default class Cadastro extends Component {
     if (Constants.platform.ios) {
       const { status } = await Permissions.askAsync(Permissions.CAMERA_ROLL);
       if (status !== "granted") {
-        alert("Desculpe, precisamos de permissões de rolagem da câmera para fazer isso funcionar!");
+        alert(
+          "Desculpe, precisamos de permissões de rolagem da câmera para fazer isso funcionar!"
+        );
       }
     }
   };

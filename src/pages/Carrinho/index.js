@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import { Text, View, StatusBar, Image, Alert } from "react-native";
-import { styles } from "./styles";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
+import { connect } from "react-redux";
 
-export default class Carrinho extends Component {
+import { styles } from "./styles";
+
+class Carrinho extends Component {
   state = {
     DATAcarrinho: [
       {
@@ -55,11 +57,17 @@ export default class Carrinho extends Component {
     console.log(item);
     Alert.alert("AVISO", "Você realmente deseja remover este produto ?", [
       { text: "Não" },
-      { text: "Sim", onPress: () => {this.removerProduto() } },
+      {
+        text: "Sim",
+        onPress: () => {
+          this.removerProduto(item.id);
+        },
+      },
     ]);
   };
 
-  removerProduto = () => {
+  removerProduto = (id) => {
+    this.props.removeCart(id);
     Alert.alert("Produto removido!");
   };
 
@@ -74,7 +82,7 @@ export default class Carrinho extends Component {
         <Text style={styles.preco}>R$ {item.preco.toFixed(2)}</Text>
       </View>
       <View style={styles.campoRemover}>
-      <TouchableOpacity onPress={() => this.button(item)}>
+        <TouchableOpacity onPress={() => this.button(item)}>
           <Image
             style={styles.fotoBotaoRemover}
             source={require("./img/sinal-menos.png")}
@@ -132,3 +140,16 @@ export default class Carrinho extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+  return { cart: state.cart };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    addCart: (id) => dispatch({ type: "ADD_CART", data: id }),
+    removeCart: (id) => dispatch({ type: "REMOVE_CART", data: id }),
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Carrinho);
