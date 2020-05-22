@@ -35,6 +35,7 @@ class Produto extends Component {
 
   render() {
     const { quantity, product } = this.state;
+    console.log(quantity);
     return (
       <View style={styles.container}>
         <View style={styles.productContainer}>
@@ -67,9 +68,8 @@ class Produto extends Component {
                   keyboardType={"numeric"}
                   placeholder="Qtd desejada"
                   maxLength={5}
-                  value={quantity}
                   onChangeText={(text) => {
-                    this.setState({ quantity: text });
+                    this.setState({ quantity: parseInt(text) });
                   }}
                   style={styles.inputqtd}
                 />

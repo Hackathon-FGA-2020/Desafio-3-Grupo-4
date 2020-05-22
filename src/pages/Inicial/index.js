@@ -20,32 +20,32 @@ export default class Inicial extends Component {
       {
         id: "0",
         nome: "Nivaldo",
-        foto: "./img/vendedor/perfil.png",
+        foto: require("./img/vendedor/perfil.png"),
       },
       {
         id: "1",
         nome: "Maria",
-        foto: "./img/vendedor/perfil.png",
+        foto: require("./img/vendedor/perfil.png"),
       },
       {
         id: "2",
         nome: "Pedro",
-        foto: "./img/vendedor/perfil.png",
+        foto: require("./img/vendedor/perfil.png"),
       },
       {
         id: "3",
         nome: "Jorje",
-        foto: "./img/vendedor/perfil.png",
+        foto: require("./img/vendedor/perfil.png"),
       },
       {
         id: "4",
         nome: "Ana",
-        foto: "./img/vendedor/perfil.png",
+        foto: require("./img/vendedor/perfil.png"),
       },
       {
         id: "5",
         nome: "Glória",
-        foto: "./img/vendedor/perfil.png",
+        foto: require("./img/vendedor/perfil.png"),
       },
     ],
   };
@@ -70,10 +70,7 @@ export default class Inicial extends Component {
       }}
     >
       <View style={styles.perfil}>
-        <Image
-          style={styles.fotoVendedor}
-          source={require("./img/vendedor/perfil.png")}
-        />
+        <Image style={styles.fotoVendedor} source={item.foto} />
         <Text style={styles.nome}>{item.nome}</Text>
       </View>
     </TouchableOpacity>
@@ -89,7 +86,7 @@ export default class Inicial extends Component {
       <View style={styles.categoria}>
         <Image
           style={styles.fotoCategoria} //Mudar para foto da catetegoria
-          source={item.foto}
+          source={null} // coloquei null por enquanto pra tirar o warning
         />
         <Text style={styles.nomeCategoria}>{item.title}</Text>
       </View>
