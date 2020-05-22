@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Text, View, StatusBar, Image, Alert } from "react-native";
+import {
+  Text,
+  View,
+  StatusBar,
+  Image,
+  Alert,
+  ActivityIndicator,
+} from "react-native";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import { connect } from "react-redux";
 
@@ -9,6 +16,7 @@ import { getDocument } from "../../api";
 
 class Carrinho extends Component {
   state = {
+    loading: true,
     DATAcarrinho: [],
     // DATAcarrinho:
     //   {
@@ -20,7 +28,7 @@ class Carrinho extends Component {
   };
 
   async componentDidMount() {
-    this.setState({ DATAcarrinho: await this.getProdutcts() });
+    this.setState({ DATAcarrinho: await this.getProdutcts(), loading: false });
   }
 
   async getProdutcts() {
@@ -85,7 +93,19 @@ class Carrinho extends Component {
     ).toFixed(2);
 
   render() {
-    return (
+    const { loading } = this.state;
+    return loading ? (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#2194BF",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <ActivityIndicator color={"white"} size={"large"} />
+      </View>
+    ) : (
       <View style={styles.container}>
         <StatusBar hidden />
 

@@ -1,5 +1,12 @@
 import React, { Component } from "react";
-import { Text, View, TouchableOpacity, Modal, TextInput } from "react-native";
+import {
+  Text,
+  View,
+  TouchableOpacity,
+  Modal,
+  TextInput,
+  ActivityIndicator,
+} from "react-native";
 import { connect } from "react-redux";
 
 import { styles } from "./styles";
@@ -11,10 +18,11 @@ class Produto extends Component {
     showPopUp: false,
     product: null,
     quantity: 0,
+    loading: true,
   };
 
   async componentDidMount() {
-    this.setState({ product: await this.getProduct() });
+    this.setState({ product: await this.getProduct(), loading: false });
   }
 
   async getProduct() {
@@ -35,8 +43,19 @@ class Produto extends Component {
   }
 
   render() {
-    const { quantity, product } = this.state;
-    return (
+    const { quantity, product, loading } = this.state;
+    return loading ? (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#2194BF",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <ActivityIndicator color={"white"} size={"large"} />
+      </View>
+    ) : (
       <View style={styles.container}>
         <View style={styles.productContainer}>
           <View style={styles.productImage}>

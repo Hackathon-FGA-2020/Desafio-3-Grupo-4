@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Text, View, FlatList } from "react-native";
+import { Text, View, FlatList, ActivityIndicator } from "react-native";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import { Picker } from "@react-native-community/picker";
 
@@ -13,12 +13,14 @@ export default class Categoria extends Component {
     pickerSelect: null,
     sortedProducts: null,
     products: null,
+    loading: true,
   };
 
   async componentDidMount() {
     this.setState({
       products: await this.getProducts(),
       categoryTitle: await this.getCategoryTitle(),
+      loading: false,
     });
   }
 
@@ -74,7 +76,19 @@ export default class Categoria extends Component {
   );
 
   render() {
-    return (
+    const { loading } = this.state;
+    return loading ? (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#2194BF",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <ActivityIndicator color={"white"} size={"large"} />
+      </View>
+    ) : (
       <View style={styles.container}>
         <View style={styles.topContainer}>
           <View style={styles.categoryImage}>

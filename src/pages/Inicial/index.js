@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
+  ActivityIndicator,
 } from "react-native";
 import { FlatList } from "react-native-gesture-handler";
 
@@ -15,6 +16,7 @@ import { getCollection } from "../../api";
 
 export default class Inicial extends Component {
   state = {
+    loading: true,
     DATAcategorias: null,
     DATAvendedores: [
       {
@@ -61,6 +63,7 @@ export default class Inicial extends Component {
   async componentDidMount() {
     this.setState({
       DATAcategorias: this.setCategorias(await getCollection("categories")),
+      loading: false,
     });
   }
   renderVendedor = ({ item }) => (
@@ -94,7 +97,19 @@ export default class Inicial extends Component {
   );
 
   render() {
-    return (
+    const { loading } = this.state;
+    return loading ? (
+      <View
+        style={{
+          flex: 1,
+          backgroundColor: "#2194BF",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <ActivityIndicator color={"white"} size={"large"} />
+      </View>
+    ) : (
       <View style={styles.container}>
         <StatusBar hidden />
 
