@@ -212,13 +212,7 @@ export default class Cadastro extends Component {
 
             <TouchableOpacity
               style={styles.submitBtn}
-<<<<<<< HEAD
               onPress={() => {this.verificaFormulario(),  this.addUser()}}
-=======
-              onPress={() => {
-                this.verificaFormulario();
-              }}
->>>>>>> develop
             >
               <Text style={styles.submitText}>Cadastrar</Text>
             </TouchableOpacity>
