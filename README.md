@@ -50,6 +50,10 @@
     
         2. yarn start
 
+# Link para baixar o APK do aplicativo
+  https://drive.google.com/drive/folders/1T518dRTavQ0wOO7I8UQWrEgsdDLDX652
+# Link direto
+  https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40italo_vinixius/agroshop-5c4b8f409dab4b3ebf767d002d20d47b-signed.apk
 
 ## Telas dos aplicativo
 
