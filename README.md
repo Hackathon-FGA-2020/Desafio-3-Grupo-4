@@ -1,7 +1,7 @@
 # Desafio-3-Grupo-4
 
 # **AgroShop** 
-
+![](assets/logo.png)
 
 ## Integrantes 
 
@@ -24,7 +24,7 @@
 - Idealizamos criar um aplicativo de vendas de produtos agrícolas, na qual uma pessoa poderia tanto comprar como vender seus produtos. Ao realizar uma compra, o vendedor receberia os dados do comprador e o contataria via e-mail ou telefone, acertando a melhor maneira de finalizar a compra, logo, detalhes de entrega e pagamento ficaria por conta do contato entre eles
 
 
-## Como configurar o ambiente - linux(Ubuntu/Mint)
+## Como configurar o ambiente - Linux(Ubuntu/Mint)
 
 ```
     sudo apt install build-essential default-jdk nodejs npm git
@@ -51,6 +51,7 @@
         2. yarn start
 
 
+## Telas dos aplicativo
 
 Tela inicial | Tela de login | Tela de cadastro
 --------- | ------ | ------
