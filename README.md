@@ -20,7 +20,7 @@
 
 ## Solução da equipe para o desafio
 
-- Nós em grupo decidimos criar um aplicativo para android usando React-Native, uma biblioteca do JavaSript, e o banco de dados Firebase.
+- O grupo decidiu criar um aplicativo para android usando React-Native, uma biblioteca do JavaSript, e o banco de dados Firebase.
 - Idealizamos criar um aplicativo de vendas de produtos agrícolas, na qual uma pessoa poderia tanto compra como vender seus produtos, ao realizar uma compra, o vendedor receberia os dados do comprador e marcariam via e-mail ou telefone, a melhor maneira de finalizar a compra, logo, detalhes de entrega e pagamento ficaria por conta do contato entre eles.
 
 
