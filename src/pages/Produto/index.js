@@ -160,7 +160,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     addCart: (id) => dispatch({ type: "ADD_CART", data: id }),
-    removeCart: (id) => dispatch({ type: "REMOVE_CART", data: id }),
   };
 }
 

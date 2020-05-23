@@ -18,6 +18,9 @@ const reducer = (state = initialState, action) => {
         return { cart: state.cart };
       } else return state;
     }
+    case "CLEAR_CART": {
+      return initialState;
+    }
   }
   return state;
 };

@@ -4,8 +4,7 @@ import {
   View,
   SafeAreaView,
   Image,
-  TouchableOpacity,
-  onPress,
+  TouchableWithoutFeedback,
   StatusBar,
   TextInput,
 } from "react-native";
@@ -23,7 +22,7 @@ export default class Busca extends Component {
   };
 
   renderObjeto = ({ item }) => (
-    <TouchableOpacity
+    <TouchableWithoutFeedback
       onPress={() => {
         if (this.state.value === "vendedores") {
           this.props.navigation.navigate("PerfilPublico");
@@ -35,11 +34,13 @@ export default class Busca extends Component {
       <View style={styles.objeto}>
         <Image
           style={styles.fotoObjeto} //Mudar para foto da catetegoria
-          source={item.foto}
+          source={
+            this.state.value === "vendedores" ? item.foto : { uri: item.foto }
+          }
         />
         <Text style={styles.nomeObjeto}>{item.nome}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 
   qualObjetoMarcado = () => {

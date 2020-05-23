@@ -133,7 +133,8 @@ class Carrinho extends Component {
           <View style={styles.submeterCompra}>
             <TouchableOpacity
               onPress={() => {
-                console.log("clicou");
+                this.props.clearCart();
+                this.props.navigation.navigate("Inicial");
               }}
               color="#23395B"
             >
@@ -154,7 +155,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addCart: (id) => dispatch({ type: "ADD_CART", data: id }),
+    clearCart: () => dispatch({ type: "CLEAR_CART" }),
     removeCart: (id) => dispatch({ type: "REMOVE_CART", data: id }),
   };
 }

@@ -4,7 +4,7 @@ import {
   View,
   SafeAreaView,
   Image,
-  TouchableOpacity,
+  TouchableWithoutFeedback,
   StatusBar,
   ActivityIndicator,
 } from "react-native";
@@ -66,20 +66,23 @@ export default class Inicial extends Component {
       loading: false,
     });
   }
+
   renderVendedor = ({ item }) => (
-    <TouchableOpacity
-      onPress={() => {
-        this.props.navigation.navigate("Login");
+    <TouchableWithoutFeedback
+      onLongPress={() => {
+        this.props.navigation.navigate("PerfilPublico");
       }}
+      onPress={() => this.props.navigation.navigate("PerfilPrivado")}
     >
       <View style={styles.perfil}>
         <Image style={styles.fotoVendedor} source={item.foto} />
         <Text style={styles.nome}>{item.nome}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
+
   renderCategoria = ({ item }) => (
-    <TouchableOpacity
+    <TouchableWithoutFeedback
       onPress={() =>
         this.props.navigation.navigate("Categoria", {
           categoryId: item.id,
@@ -89,11 +92,11 @@ export default class Inicial extends Component {
       <View style={styles.categoria}>
         <Image
           style={styles.fotoCategoria} //Mudar para foto da catetegoria
-          source={null} // coloquei null por enquanto pra tirar o warning
+          source={{ uri: item.foto }}
         />
         <Text style={styles.nomeCategoria}>{item.nome}</Text>
       </View>
-    </TouchableOpacity>
+    </TouchableWithoutFeedback>
   );
 
   render() {
@@ -114,26 +117,25 @@ export default class Inicial extends Component {
         <StatusBar hidden />
 
         <View style={styles.opcoes}>
-          <TouchableOpacity
-            onPress={() => this.props.navigation.navigate("PerfilPrivado")}
-            onLongPress={() => this.props.navigation.navigate("PerfilPublico")}
+          <TouchableWithoutFeedback
+            onPress={() => this.props.navigation.navigate("Login")}
           >
             <Image
               style={styles.botaoPerfil}
               source={require("./img/vendedor/perfil.png")}
             />
-          </TouchableOpacity>
+          </TouchableWithoutFeedback>
 
           <View style={styles.carrinhoBusca}>
-            <TouchableOpacity
+            <TouchableWithoutFeedback
               onPress={() => this.props.navigation.navigate("Carrinho")}
             >
               <Image
                 style={styles.botaoCarrinho}
                 source={require("./img/icones/cesta.png")}
               />
-            </TouchableOpacity>
-            <TouchableOpacity
+            </TouchableWithoutFeedback>
+            <TouchableWithoutFeedback
               onPress={() =>
                 this.props.navigation.navigate("Busca", {
                   DATAcategorias: this.state.DATAcategorias,
@@ -145,7 +147,7 @@ export default class Inicial extends Component {
                 style={styles.botaoPesquisa}
                 source={require("./img/icones/lupa.png")}
               />
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
           </View>
         </View>
 
