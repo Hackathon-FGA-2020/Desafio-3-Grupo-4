@@ -50,25 +50,8 @@ export default class PerfilPublico extends React.Component {
   };
 
   renderDados = ({ item }) => (
-    <View >
-      <TouchableOpacity
-        style={styles.produtos}
-        onPress={() => {
-          this.props.navigation.navigate("Produto", {
-            product: {
-              id: "0",
-              title: "Cenoura",
-              local: "Brazlândia",
-              state: "DF",
-              price: 1.2,
-              description:
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. ",
-              img: null,
-              seller: "Nivaldo Pereira",
-            },
-          });
-        }}
-      >
+    <View>
+      <TouchableOpacity style={styles.produtos} onPress={() => null}>
         <View style={styles.prodEsquerda}>
           <Image style={styles.imgProduto} source={require("./icone.png")} />
         </View>

@@ -53,8 +53,9 @@ class Carrinho extends Component {
       { text: "Não" },
       {
         text: "Sim",
-        onPress: () => {
+        onPress: async () => {
           this.removerProduto(item.id);
+          this.setState({ DATAcarrinho: await this.getProdutcts() });
         },
       },
     ]);

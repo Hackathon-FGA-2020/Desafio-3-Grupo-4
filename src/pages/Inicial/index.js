@@ -55,7 +55,7 @@ export default class Inicial extends Component {
   setCategorias(data) {
     let result = [];
     data.forEach((item) =>
-      result.push({ id: item.id, title: item.data.title, foto: item.data.img })
+      result.push({ id: item.id, nome: item.data.title, foto: item.data.img })
     );
     return result;
   }
@@ -91,7 +91,7 @@ export default class Inicial extends Component {
           style={styles.fotoCategoria} //Mudar para foto da catetegoria
           source={null} // coloquei null por enquanto pra tirar o warning
         />
-        <Text style={styles.nomeCategoria}>{item.title}</Text>
+        <Text style={styles.nomeCategoria}>{item.nome}</Text>
       </View>
     </TouchableOpacity>
   );

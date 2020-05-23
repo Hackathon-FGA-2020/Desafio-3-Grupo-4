@@ -28,7 +28,7 @@ export default class Busca extends Component {
         if (this.state.value === "vendedores") {
           this.props.navigation.navigate("PerfilPublico");
         } else {
-          this.props.navigation.navigate("Categoria");
+          this.props.navigation.navigate("Categoria", { categoryId: item.id });
         }
       }}
     >
