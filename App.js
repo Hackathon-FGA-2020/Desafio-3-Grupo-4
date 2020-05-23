@@ -4,6 +4,15 @@ import Routes from "./src";
 import { Provider } from "react-redux";
 import { createStore } from "redux";
 
+// para um problema no firebase
+import { decode, encode } from "base-64";
+if (!global.btoa) {
+  global.btoa = encode;
+}
+if (!global.atob) {
+  global.atob = decode;
+}
+
 const initialState = { cart: [] };
 const reducer = (state = initialState, action) => {
   switch (action.type) {

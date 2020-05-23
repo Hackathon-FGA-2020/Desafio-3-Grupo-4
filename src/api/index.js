@@ -60,7 +60,7 @@ async function getCollectionWithQuery(collection, query) {
   return list;
 }
 
-function addItem(collection, obj){
+function addItem(collection, obj) {
   checkInitialized();
   FirestoreDB.collection(collection).add(obj);
 }
