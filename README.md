@@ -24,7 +24,7 @@
 - Idealizamos criar um aplicativo de vendas de produtos agrícolas, na qual uma pessoa poderia tanto comprar como vender seus produtos. Ao realizar uma compra, o vendedor receberia os dados do comprador e o contataria via e-mail ou telefone, acertando a melhor maneira de finalizar a compra, logo, detalhes de entrega e pagamento ficaria por conta do contato entre eles
 
 
-## Para configurar o ambiente
+## Como configurar o ambiente - linux(Ubuntu/Mint)
 
 ```
     sudo apt install build-essential default-jdk nodejs npm git
@@ -70,7 +70,9 @@ Tela de cadastrar produto | Tela dos pedidos feitos | Tela dos pedidos recebidos
 
 
 ## Observação de utilização:
-- O ícone de perfil no canto superior esquerdo se clicado vai para o perfil privado, mas ao segurá-lo a pessoal é direcionado para o perfil público
+- Na tela inicial, nos ícones dos vendedores:
+  - se clicado a pessoal é direcionada para o perfil privado
+  - ao segurá-lo a pessoal é direcionado para o perfil público
 
 # Funções:
 
@@ -86,6 +88,8 @@ Tela de cadastrar produto | Tela dos pedidos feitos | Tela dos pedidos recebidos
 - [ ] Verificação do login
 - [ ] Editar perfil
 - [ ] Upload da imagem para o banco de dados
+- [ ] Cadastro de novos produtos não funcionando corretamente
+- [ ] Funcionamento da compra de produtos
 
 
 
