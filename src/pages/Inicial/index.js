@@ -63,6 +63,7 @@ export default class Inicial extends Component {
       DATAcategorias: this.setCategorias(await getCollection("categories")),
     });
   }
+
   renderVendedor = ({ item }) => (
     <TouchableOpacity
       onPress={() => {
@@ -78,23 +79,27 @@ export default class Inicial extends Component {
       </View>
     </TouchableOpacity>
   );
-  renderCategoria = ({ item }) => (
-    <TouchableOpacity
-      onPress={() =>
-        this.props.navigation.navigate("Categoria", {
-          categoryId: item.id,
-        })
-      }
-    >
-      <View style={styles.categoria}>
-        <Image
-          style={styles.fotoCategoria} //Mudar para foto da catetegoria
-          source={item.foto}
-        />
-        <Text style={styles.nomeCategoria}>{item.title}</Text>
-      </View>
-    </TouchableOpacity>
-  );
+
+  renderCategoria = ({ item }) => {
+
+    return (
+      <TouchableOpacity
+        onPress={() =>
+          this.props.navigation.navigate("Categoria", {
+            categoryId: item.id,
+          })
+        }
+      >
+        <View style={styles.categoria}>
+          <Image
+            style={styles.fotoCategoria} //Mudar para foto da catetegoria
+            source={{uri: item.foto}}
+          />
+          <Text style={styles.nomeCategoria}>{item.title}</Text>
+        </View>
+      </TouchableOpacity>
+    );
+  };
 
   render() {
     return (
