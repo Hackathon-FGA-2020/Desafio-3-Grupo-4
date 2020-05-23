@@ -20,8 +20,8 @@
 
 ## Solução da equipe para o desafio
 
-- O grupo decidiu criar um aplicativo para android usando React-Native, uma biblioteca do JavaSript, e o banco de dados Firebase.
-- Idealizamos criar um aplicativo de vendas de produtos agrícolas, na qual uma pessoa poderia tanto compra como vender seus produtos, ao realizar uma compra, o vendedor receberia os dados do comprador e marcariam via e-mail ou telefone, a melhor maneira de finalizar a compra, logo, detalhes de entrega e pagamento ficaria por conta do contato entre eles.
+- O grupo decidiu criar um aplicativo para android usando React-Native, que é uma biblioteca do JavaSript, e o banco de dados Firebase.
+- Idealizamos criar um aplicativo de vendas de produtos agrícolas, na qual uma pessoa poderia tanto comprar como vender seus produtos. Ao realizar uma compra, o vendedor receberia os dados do comprador e o contataria via e-mail ou telefone, acertando a melhor maneira de finalizar a compra, logo, detalhes de entrega e pagamento ficaria por conta do contato entre eles
 
 
 ## Para configurar o ambiente
@@ -68,6 +68,9 @@ Tela de cadastrar produto | Tela dos pedidos feitos | Tela dos pedidos recebidos
 --------- | ------ | ------ | ------
 ![](assets/telas/tela_cadastroP.jpg) | ![](assets/telas/tela_compras.jpg) | ![](assets/telas/tela_pedidorec.jpg) | ![](assets/telas/tela_pedidos.jpg) 
 
+
+## Observação de utilização:
+- O ícone de perfil no canto superior esquerdo se clicado vai para o perfil privado, mas ao segurá-lo a pessoal é direcionado para o perfil público
 
 # Funções:
 
